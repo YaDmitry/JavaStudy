@@ -9,7 +9,7 @@ Exercise 9: (2) Write a program that demonstrates that autoboxing works for all 
 primitive types and their wrappers.
 */
 
-public class task08 {
+public class task09 {
 
     boolean Boo = false;
     char A = 'a';
