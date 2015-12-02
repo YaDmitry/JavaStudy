@@ -10,13 +10,12 @@ print their values to verify that Java performs default initialization.
  */
 
 public class task01 {
+    static int a;
+    static char b;
 
     public static void main(String[] args) {
-        int a;
-        char b;
-
-//        System.out.println(a);
-//        System.out.println(b);
+        System.out.println("a is " + a);
+        System.out.println("b is '" + b + "'");
     }
 
 }

@@ -18,7 +18,7 @@ public class task07 {
     }
 
     public static void main(String[] args) {
-        task07.i;
+//        task07.i;
     }
 
 }
