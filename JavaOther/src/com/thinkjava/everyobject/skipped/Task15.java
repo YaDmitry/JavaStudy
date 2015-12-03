@@ -1,4 +1,4 @@
-package com.thinkjava.everyobject;
+package com.thinkjava.everyobject.skipped;
 
 /**
  * Created by dyaprint on 03.12.2015.

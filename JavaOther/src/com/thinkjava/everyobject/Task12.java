@@ -9,6 +9,7 @@ package com.thinkjava.everyobject;
 simple comment documentation example. Execute Javadoc on the file and view the results
 with your Web browser.*/
 
+//    TODO get hello date and look at javadocs
 public class Task12 {
 
 }
