@@ -12,5 +12,6 @@ with your Web browser.*/
 //    TODO get hello date and look at javadocs
 public class Task12 {
 
+    //DONE - goto object -> JavaDoc
 
 }

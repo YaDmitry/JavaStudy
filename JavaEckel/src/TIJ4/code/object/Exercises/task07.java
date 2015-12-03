@@ -2,19 +2,16 @@ package TIJ4.code.object.Exercises;
 
 public class task07 {
 
-    static class StaticTest {
-        static int i = 0;
-    }
+    static int i = 47;
 
-    static class Incrementable {
-        static void increment() { StaticTest.i++; }
+    static void increment() {
+        task07.i++;
     }
 
     public static void main(String[] args) {
-        Incrementable sf = new Incrementable();
-        sf.increment();
 
-        Incrementable.increment();
+        task07.increment();
+        System.out.println(i);
     }
 
 }
