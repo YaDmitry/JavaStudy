@@ -11,10 +11,17 @@ compiles and runs.
 
 public class АllTheColorsOfTheRainbow {
 
-    int anIntegerRepresentingColors;
-    void changeTheHueOfTheColor(int newHue) {
+    int color;
+    void changeColor(int newHue) {
+        System.out.print(color);
+        System.out.print(" changed to ");
         System.out.println(newHue);
     }
 
+    public static void main(String[] args) {
+        АllTheColorsOfTheRainbow Color = new АllTheColorsOfTheRainbow();
+        Color.color = 3;
+        Color.changeColor(5);
+    }
 
 }
