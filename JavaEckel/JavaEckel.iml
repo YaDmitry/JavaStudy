@@ -7,9 +7,15 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" exported="" name="atunit" level="project" />
-    <orderEntry type="library" exported="" name="simple" level="project" />
-    <orderEntry type="library" exported="" name="util" level="project" />
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES />
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$APPLICATION_HOME_DIR$/lib" />
+        </SOURCES>
+      </library>
+    </orderEntry>
   </component>
 </module>
 

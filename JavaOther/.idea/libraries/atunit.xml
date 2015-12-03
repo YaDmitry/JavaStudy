@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="atunit">
+    <CLASSES>
+      <root url="file://$APPLICATION_HOME_DIR$/lib/mindview/atunit" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

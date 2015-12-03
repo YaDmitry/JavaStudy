@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="util">
+    <CLASSES>
+      <root url="file://$APPLICATION_HOME_DIR$/lib/mindview/util" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
