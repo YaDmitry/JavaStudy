@@ -11,4 +11,14 @@ package ru.ts.mms.Exercises.ch3_Operators;
 
 public class Task03 {
 
+   static class Float {
+        float F;
+    }
+
+    public class IntoObject {
+//        static void O(Float fl);
+//        fl.F
+
+    }
+
 }

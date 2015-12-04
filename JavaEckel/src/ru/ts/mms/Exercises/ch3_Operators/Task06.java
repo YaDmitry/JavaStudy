@@ -17,14 +17,22 @@ public class Task06 {
         Task05.Dog dog3 = new Task05.Dog();
 
         /*TODO fill the dogs*/
+        dog1.name = "name1";
+        dog2.name = "name2";
+        dog3.name = "name3";
+        dog1.says = "says1";
+        dog2.says = "says2";
+        dog3.says = "says2";
 
         compare(dog1, dog2);
         compare(dog2, dog3);
         compare(dog1, dog3);
+
     }
 
     private static void compare(Task05.Dog dog1, Task05.Dog dog2) {
         //TODO compare with == and equals()
-        System.out.println(/*result*/);
+        System.out.println(dog1.name == dog2.name);
+        System.out.println(dog1.says.equals(dog2.name));
     }
 }
