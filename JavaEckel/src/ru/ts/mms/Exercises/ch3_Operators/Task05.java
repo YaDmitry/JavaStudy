@@ -15,7 +15,6 @@ import static net.mindview.util.Print.*;
  ***********************************************/
 
 public class Task05 {
-
     static class Dog {
         String name;
         String says;

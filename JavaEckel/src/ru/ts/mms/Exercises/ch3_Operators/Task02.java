@@ -4,30 +4,32 @@ package ru.ts.mms.Exercises.ch3_Operators;
  * Created by dyaprint on 04.12.2015.
  */
 
-/****************** Exercise 2 *****************
+/******************
+ * Exercise 2 *****************
  * Create a class containing a float and use it to
  * demonstrate aliasing.
  ***********************************************/
 
-import java.util.Objects;
-
-import static net.mindview.util.Print.*;
-
 public class Task02 {
-    float Float;
+    float aFloat;
 
     public static void main(String[] args) {
-        Object f1 = new Object();
-        Object f2 = new Object();
+        Task02 f1 = new Task02();
+        Task02 f2 = new Task02();
 
-//        f1.F
-//
-//        Float f = new Float(float f1, floa);
-//        f.f1 = 3.4f;
-//        f.f2 = 5.9f;
-//
-//        print(f1);
-//        print(f2);
+        f1.aFloat = 3.5f;
+        f2.aFloat = 5.1f;
 
+        System.out.println(f1.aFloat);
+        System.out.println(f2.aFloat);
+
+        f1 = f2;
+        f2.aFloat = 1f;
+
+        System.out.println(f1.aFloat);
+        System.out.println(f2.aFloat);
+
+        System.out.println(f1);
+        System.out.println(f2);
     }
 }
