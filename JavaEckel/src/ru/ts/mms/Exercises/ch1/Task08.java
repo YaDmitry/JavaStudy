@@ -1,4 +1,4 @@
-package TIJ4.code.ch1.objects.Exercises;
+package ru.ts.mms.Exercises.ch1;
 
 public class Task08 {
     static int i;

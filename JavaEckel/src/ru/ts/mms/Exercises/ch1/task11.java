@@ -1,4 +1,4 @@
-package TIJ4.code.ch1.objects.Exercises;
+package ru.ts.mms.Exercises.ch1;
 
 /**
  * Created by dyaprint on 03.12.2015.
