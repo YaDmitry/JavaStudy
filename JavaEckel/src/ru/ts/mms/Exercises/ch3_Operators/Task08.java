@@ -12,6 +12,12 @@ package ru.ts.mms.Exercises.ch3_Operators;
 
 public class Task08 {
 
-    //не успел
+    public static void main(String[] args) {
+        int i1 = 0x2f;
+        int i2 = 0177;
+        System.out.println(Long.toBinaryString(i1));
+        System.out.println(Long.toBinaryString(i2));
+
+    }
 
 }

@@ -12,13 +12,21 @@ package ru.ts.mms.Exercises.ch3_Operators;
 public class Task03 {
 
    static class Float {
-        float F;
+        float Number;
     }
 
-    public class IntoObject {
-//        static void O(Float fl);
-//        fl.F
+   static void M(Float f) {
+       f.Number = 3.1f;
+   }
 
+    public static void main(String[] args) {
+    Float Aliasing = new Float();
+        Aliasing.Number = 55f;
+        System.out.println("Aliasing = " + Aliasing.Number);
+        M(Aliasing);
+        System.out.println("Aliasing = " + Aliasing.Number);
     }
 
 }
+
+//almost got it still don't understand why do i need this
