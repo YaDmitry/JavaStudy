@@ -17,4 +17,6 @@ package ru.ts.mms.Exercises.ch3_Operators;
 
 public class Task11_Skipped {
 
+System.o
+
 }
