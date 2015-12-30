@@ -1,26 +1,27 @@
-package com.calculator;
-
 import javax.swing.*;
 import java.awt.*;
 
 public class Calculator {
 
+//    TODO
+//    1. Save exit - done
+//    2. Bigger Font - done
+//    3. Cool operation displaying - kinda
+//    4. Can't divide with 0 - done
+//    5. Junit tests
+//    6. Calc opens in the center or so - done
+
+    //Set default font for the buttons
+    Font font = new Font("OCR A Extended", 0, 45);
+    Font textFont = new Font("OCR A Extended", 0, 25);
+
     // Объявление всех компонентов калькулятора.
     JPanel windowContent;
     JFormattedTextField displayField;
-//    JButton[] numButtons = new JButton[10];
-//    asdfasdasd
+    JButton buttonAC;
 
-    JButton button0;
-    JButton button1;
-    JButton button2;
-    JButton button3;
-    JButton button4;
-    JButton button5;
-    JButton button6;
-    JButton button7;
-    JButton button8;
-    JButton button9;
+    JButton[] numButtons = new JButton[10];
+
     JButton buttonPoint;
     JButton buttonEqual;
     JButton buttonPlus;
@@ -36,6 +37,9 @@ public class Calculator {
 
     Calculator() {
         windowContent = new JPanel();
+        buttonAC = new JButton("AC");
+        buttonAC.setFont(font);
+        buttonAC.setForeground(Color.RED);
 
         // Задаём схему для этой панели
         BorderLayout bl = new BorderLayout();
@@ -45,33 +49,35 @@ public class Calculator {
         // Добавляем его в Северную область окна
         // Выравниваем текст по правому краю
         displayField = new JFormattedTextField();
+//        displayField.setValue(0);
+        displayField.setFont(textFont);
+        displayField.setForeground(Color.BLUE);
         displayField.setHorizontalAlignment(SwingConstants.RIGHT);
+
         windowContent.add("North", displayField);
+        windowContent.add(BorderLayout.BEFORE_LINE_BEGINS, buttonAC);
 
         // Создаём кнопки, используя конструктор
         // класса JButton, который принимает текст
         // кнопки в качестве параметра
-//        for (int i = 0; i < 10; i++) { 
-//            numButtons[i] = new JButton();
-//        }
 
+        for (int i = 0; i < 10; i++) {
+            numButtons[i] = new JButton(String.valueOf(i));
+            numButtons[i].setFont(font);
+        }
 
-        button0 = new JButton("0");
-        button1 = new JButton("1");
-        button2 = new JButton("2");
-        button3 = new JButton("3");
-        button4 = new JButton("4");
-        button5 = new JButton("5");
-        button6 = new JButton("6");
-        button7 = new JButton("7");
-        button8 = new JButton("8");
-        button9 = new JButton("9");
         buttonPoint = new JButton(".");
+        buttonPoint.setFont(font);
         buttonEqual = new JButton("=");
+        buttonEqual.setFont(font);
         buttonPlus = new JButton("+");
+        buttonPlus.setFont(font);
         buttonMinus = new JButton("-");
+        buttonMinus.setFont(font);
         buttonDivide = new JButton("/");
+        buttonDivide.setFont(font);
         buttonMultiply = new JButton("*");
+        buttonMultiply.setFont(font);
 
         // Создаём панель с GridLayout
         // которая содержит 12 кнопок - 10 кнопок с числами
@@ -87,16 +93,12 @@ public class Calculator {
         p2.setLayout(gl2);
 
         // Добавляем кнопки на панель p1
-        p1.add(button1);
-        p1.add(button2);
-        p1.add(button3);
-        p1.add(button4);
-        p1.add(button5);
-        p1.add(button6);
-        p1.add(button7);
-        p1.add(button8);
-        p1.add(button9);
-        p1.add(button0);
+
+        for (int i = 1; i < 10; i++) {
+            p1.add(numButtons[i]);
+        }
+
+        p1.add(numButtons[0]);
         p1.add(buttonPoint);
         p1.add(buttonEqual);
 
@@ -115,6 +117,8 @@ public class Calculator {
         //Создаём фрейм и задаём его основную панель
         JFrame frame = new JFrame("Calculator");
         frame.setContentPane(windowContent);
+        frame.setLocationRelativeTo(null);  //this will center an app
+        frame.setDefaultCloseOperation(frame.EXIT_ON_CLOSE);
 
         // делаем размер окна достаточным
         // для того, чтобы вместить все компоненты
@@ -124,17 +128,12 @@ public class Calculator {
         frame.setVisible(true);
 
         CalculatorEngine calcEngine = new CalculatorEngine(this);
-        button0.addActionListener(calcEngine);
-        button1.addActionListener(calcEngine);
-        button2.addActionListener(calcEngine);
-        button3.addActionListener(calcEngine);
-        button4.addActionListener(calcEngine);
-        button5.addActionListener(calcEngine);
-        button6.addActionListener(calcEngine);
-        button7.addActionListener(calcEngine);
-        button8.addActionListener(calcEngine);
-        button9.addActionListener(calcEngine);
 
+        for (int i = 0; i < 10; i++) {
+            numButtons[i].addActionListener(calcEngine);
+        }
+
+        buttonAC.addActionListener(calcEngine);
         buttonPlus.addActionListener(calcEngine);
         buttonMinus.addActionListener(calcEngine);
         buttonDivide.addActionListener(calcEngine);
