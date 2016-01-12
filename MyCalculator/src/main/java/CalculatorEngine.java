@@ -88,7 +88,7 @@ public class CalculatorEngine implements ActionListener {
 
             if (secondAction == '/') {
                 if (displayValue == 0) {
-                    parent.displayField.setText("Cannot divide by zero!");
+                    parent.displayField.setText("Can't do that...");
                 } else {
                     currentResult /= displayValue;
                     parent.displayField.setText("" + currentResult);
