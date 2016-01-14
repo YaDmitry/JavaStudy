@@ -1,5 +1,4 @@
 import javax.swing.*;
-import javax.swing.border.Border;
 import java.awt.*;
 
 public class Calculator {
@@ -12,12 +11,17 @@ public class Calculator {
 //    2 строки
 
     //Set default font for the buttons
-    Font buttonFont = new Font("OCR A Extended", 0, 30);
-    Font textFont = new Font("OCR A Extended", 0, 27);
+    Font buttonFont = new Font("OCR A Extended", 0, 40);
+    Font textFont = new Font("OCR A Extended", 0, 30);
+
+    //booleans for +,-,/,*
+    boolean[] function = new boolean[4];
+    //temporary doubles for calculations
+    double[] temporary = {0, 0};
 
     // Describe all calculator elements
     JPanel windowContent;
-    JFormattedTextField displayField;
+    JTextArea displayField;
 
     JButton numButtons[] = new JButton[10];
     JButton buttonAC;
@@ -54,15 +58,17 @@ public class Calculator {
         p3.setLayout(gL2);
 
         //Create input text field
-        displayField = new JFormattedTextField();
+        displayField = new JTextArea();
         displayField.setFont(textFont);
+        displayField.setEditable(false);
         displayField.setForeground(Color.BLUE);
-        displayField.setHorizontalAlignment(SwingConstants.RIGHT);
+        displayField.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
 
         //Create all the buttons
         for (int i = 0; i < 10; i++) {
             numButtons[i] = new JButton(String.valueOf(i));
             numButtons[i].setFont(buttonFont);
+            numButtons[i].setBackground(Color.white);
         }
 
         buttonAC = new JButton("AC");
@@ -72,35 +78,27 @@ public class Calculator {
         buttonX2.setFont(buttonFont);
         buttonPoint = new JButton(".");
         buttonPoint.setFont(buttonFont);
+        buttonPoint.setBackground(Color.white);
         buttonEqual = new JButton("=");
         buttonEqual.setFont(buttonFont);
         buttonEqual.setBackground(Color.orange);
         buttonEqual.setOpaque(true);
-        buttonEqual.setBorderPainted(false);
-
         buttonPlus = new JButton("+");
         buttonPlus.setFont(buttonFont);
         buttonPlus.setBackground(Color.orange);
         buttonPlus.setOpaque(true);
-        buttonPlus.setBorderPainted(false);
-
         buttonMinus = new JButton("-");
         buttonMinus.setFont(buttonFont);
         buttonMinus.setBackground(Color.orange);
         buttonMinus.setOpaque(true);
-        buttonMinus.setBorderPainted(false);
-
         buttonDivide = new JButton("/");
         buttonDivide.setFont(buttonFont);
         buttonDivide.setBackground(Color.orange);
         buttonDivide.setOpaque(true);
-        buttonDivide.setBorderPainted(false);
-
         buttonMultiply = new JButton("*");
         buttonMultiply.setFont(buttonFont);
         buttonMultiply.setBackground(Color.orange);
         buttonMultiply.setOpaque(true);
-        buttonMultiply.setBorderPainted(false);
 
         //Add panels to panels with magic logic
         windowContent.add("North", displayField);
@@ -121,7 +119,6 @@ public class Calculator {
         p2.add(buttonMultiply);
         p2.add(buttonPoint);
         p2.add(buttonEqual);
-
         p3.add(numButtons[1]);
         p3.add(numButtons[2]);
         p3.add(numButtons[4]);
@@ -134,41 +131,34 @@ public class Calculator {
         frame.setContentPane(windowContent);
         frame.setLocationRelativeTo(null);  //this will center an app
         frame.setDefaultCloseOperation(frame.EXIT_ON_CLOSE);
+        frame.setResizable(false);
         // делаем размер окна достаточным
         // для того, чтобы вместить все компоненты
         frame.pack();
         // Наконец, отображаем окно
         frame.setVisible(true);
 
-        try {
-            UIManager.setLookAndFeel( UIManager.getCrossPlatformLookAndFeelClassName() );
-        } catch (Exception e) {
-            e.printStackTrace();
+        for(int i = 0; i < 4; i++)
+            function[i] = false;
+
+        CalculatorPlay calcEngine = new CalculatorPlay(this);
+
+        for (int i = 0; i < 10; i++) {
+            numButtons[i].addActionListener(calcEngine);
         }
 
-
-//        CalculatorEngine calcEngine = new CalculatorEngine(this);
-
-//        for (int i = 0; i < 10; i++) {
-//            numButtons[i].addActionListener(calcEngine);
-//        }
-//
-//        buttonAC.addActionListener(calcEngine);
-//        buttonPlus.addActionListener(calcEngine);
-//        buttonMinus.addActionListener(calcEngine);
-//        buttonDivide.addActionListener(calcEngine);
-//        buttonMultiply.addActionListener(calcEngine);
-//        buttonPoint.addActionListener(calcEngine);
-//        buttonEqual.addActionListener(calcEngine);
+        buttonAC.addActionListener(calcEngine);
+        buttonPlus.addActionListener(calcEngine);
+        buttonMinus.addActionListener(calcEngine);
+        buttonDivide.addActionListener(calcEngine);
+        buttonMultiply.addActionListener(calcEngine);
+        buttonPoint.addActionListener(calcEngine);
+        buttonEqual.addActionListener(calcEngine);
+        buttonX2.addActionListener(calcEngine);
     }
 
     public static void main(String[] args) {
-        SwingUtilities.invokeLater(new Runnable() {
-            public void run() {
-                new Calculator();
-            }
-        });
-//        Calculator calc = new Calculator();
+        Calculator calc = new Calculator();
     }
 
 }
