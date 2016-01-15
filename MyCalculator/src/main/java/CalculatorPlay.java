@@ -2,8 +2,6 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-//http://www.dreamincode.net/forums/topic/321933-creating-a-calculator-using-jframe/
-
 /**
  * Created by Dmitry on 27/12/15.
  */
@@ -43,29 +41,18 @@ public class CalculatorPlay implements ActionListener {
     public void getResult() {
         double result = 0;
         parent.temporary[1] = Double.parseDouble(parent.displayField.getText());
-        String temp0 = Double.toString(parent.temporary[0]);
-        String temp1 = Double.toString(parent.temporary[1]);
-        try {
-            if (temp0.contains("-")) {
-                String[] temp00 = temp0.split("-", 2);
-                parent.temporary[0] = (Double.parseDouble(temp00[1]) * -1);
-            }
-            if (temp1.contains("-")) {
-                String[] temp11 = temp1.split("-", 2);
-                parent.temporary[1] = (Double.parseDouble(temp11[1]) * -1);
-            }
-        } catch (ArrayIndexOutOfBoundsException e) {
-        }
         try {
             if (parent.function[2] == true)
                 result = parent.temporary[0] * parent.temporary[1];
-            else if (parent.function[3] == true)
-                result = parent.temporary[0] / parent.temporary[1];
-            else if (parent.function[0] == true)
-                result = parent.temporary[0] + parent.temporary[1];
-            else if (parent.function[1] == true)
-                result = parent.temporary[0] - parent.temporary[1];
-            parent.displayField.setText(Double.toString(result));
+                else if (parent.function[3] == true)
+                    result = parent.temporary[0] / parent.temporary[1];
+                else if (parent.function[0] == true)
+                    result = parent.temporary[0] + parent.temporary[1];
+                else if (parent.function[1] == true)
+                    result = parent.temporary[0] - parent.temporary[1];
+                parent.displayField.setText(Double.toString(result));
+            if (parent.function[3] == true && parent.temporary[1] == 0)
+            parent.displayField.setText("!Can't do that");
             for (int i = 0; i < 4; i++)
                 parent.function[i] = false;
         } catch (NumberFormatException e) {
@@ -84,7 +71,7 @@ public class CalculatorPlay implements ActionListener {
             parent.temporary[0] = Double.parseDouble(parent.displayField.getText());
             firstValue = parent.temporary[0];
             parent.function[0] = true;
-            parent.displayField.setText(String.valueOf(firstValue));
+            parent.displayField.setText("");
         }
 
         if (e.getSource() == parent.buttonMinus) {
@@ -119,7 +106,6 @@ public class CalculatorPlay implements ActionListener {
 
         if (e.getSource() == parent.buttonEqual)
             getResult();
-
 
     }
 
