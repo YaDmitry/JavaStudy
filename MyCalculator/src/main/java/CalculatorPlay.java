@@ -11,6 +11,11 @@ public class CalculatorPlay implements ActionListener {
     Calculator parent; //ссылка на окно калькулятора
     double firstValue;
 
+    //booleans for +,-,/,*
+    boolean[] function = new boolean[4];
+    //temporary doubles for calculations
+    double[] temporary = {0, 0};
+
     // Конструктор сохраняет ссылку на окно калькулятора в переменной экземпляра класса
     CalculatorPlay(Calculator parent) {
         this.parent = parent;
@@ -21,9 +26,9 @@ public class CalculatorPlay implements ActionListener {
         try {
             parent.displayField.setText("");
             for (int i = 0; i < 4; i++)
-                parent.function[i] = false;
+                function[i] = false;
             for (int i = 0; i < 2; i++)
-                parent.temporary[i] = 0;
+                temporary[i] = 0;
         } catch (NullPointerException e) {
         }
     }
@@ -40,63 +45,81 @@ public class CalculatorPlay implements ActionListener {
     //method to get Result
     public void getResult() {
         double result = 0;
-        parent.temporary[1] = Double.parseDouble(parent.displayField.getText());
+        temporary[1] = Double.parseDouble(parent.displayField.getText());
         try {
-            if (parent.function[2] == true)
-                result = parent.temporary[0] * parent.temporary[1];
-                else if (parent.function[3] == true)
-                    result = parent.temporary[0] / parent.temporary[1];
-                else if (parent.function[0] == true)
-                    result = parent.temporary[0] + parent.temporary[1];
-                else if (parent.function[1] == true)
-                    result = parent.temporary[0] - parent.temporary[1];
+            if (function[2] == true)
+                result = temporary[0] * temporary[1];
+                else if (function[3] == true)
+                    result = temporary[0] / temporary[1];
+                else if (function[0] == true)
+                    result = temporary[0] + temporary[1];
+                else if (function[1] == true)
+                    result = temporary[0] - temporary[1];
                 parent.displayField.setText(Double.toString(result));
-            if (parent.function[3] == true && parent.temporary[1] == 0)
-            parent.displayField.setText("!Can't do that");
+            if (function[3] == true && temporary[1] == 0)
+            parent.displayField.setText("Can't do that!");
             for (int i = 0; i < 4; i++)
-                parent.function[i] = false;
+                function[i] = false;
         } catch (NumberFormatException e) {
         }
     }
 
     public void actionPerformed(ActionEvent e) {
 
+        // Получаем источник действия
+        JButton clickedButton = (JButton) e.getSource();
+        String dispFieldText = parent.displayField.getText();
+
+        double displayValue = 0;
+
+        // Получить число из дисплея калькулятора,
+        // если он не пустой.
+        if ((!"".equals(dispFieldText))) {
+            displayValue = Double.parseDouble(dispFieldText);
+        }
+
+        String clickedButtonLabel = clickedButton.getText();
+
+        for(int i = 0; i < 4; i++)
+            function[i] = false;
+
         for (int i = 0; i < 10; i++) {
             if (e.getSource() == parent.numButtons[i])
-                parent.displayField.append(String.valueOf(i));
+//                parent.displayField.setText(String.valueOf(i));
+                parent.displayField.setText(dispFieldText + clickedButtonLabel);
         }
 
         if (e.getSource() == parent.buttonPlus) {
             //Add function[0]
-            parent.temporary[0] = Double.parseDouble(parent.displayField.getText());
-            firstValue = parent.temporary[0];
-            parent.function[0] = true;
+            temporary[0] = Double.parseDouble(parent.displayField.getText());
+            firstValue = temporary[0];
+            function[0] = true;
             parent.displayField.setText("");
         }
 
         if (e.getSource() == parent.buttonMinus) {
             //Minus function[1]
-            parent.temporary[0] = Double.parseDouble(parent.displayField.getText());
-            parent.function[1] = true;
+            temporary[0] = Double.parseDouble(parent.displayField.getText());
+            function[1] = true;
             parent.displayField.setText("");
         }
 
         if (e.getSource() == parent.buttonMultiply) {
             //Multiply function[2]
-            parent.temporary[0] = Double.parseDouble(parent.displayField.getText());
-            parent.function[2] = true;
+            temporary[0] = Double.parseDouble(parent.displayField.getText());
+            function[2] = true;
             parent.displayField.setText("");
         }
 
         if (e.getSource() == parent.buttonDivide) {
             //Divide function[3]
-            parent.temporary[0] = Double.parseDouble(parent.displayField.getText());
-            parent.function[3] = true;
+            temporary[0] = Double.parseDouble(parent.displayField.getText());
+            function[3] = true;
             parent.displayField.setText("");
         }
 
         if (e.getSource() == parent.buttonPoint)
-            parent.displayField.append(".");
+            parent.displayField.setText(".");
 
         if (e.getSource() == parent.buttonAC)
             ACbutton();

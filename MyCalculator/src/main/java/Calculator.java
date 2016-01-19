@@ -16,14 +16,9 @@ public class Calculator {
     Font buttonFont = new Font("OCR A Extended", 0, 40);
     Font textFont = new Font("OCR A Extended", 0, 30);
 
-    //booleans for +,-,/,*
-    boolean[] function = new boolean[4];
-    //temporary doubles for calculations
-    double[] temporary = {0, 0};
-
     // Describe all calculator elements
     JPanel windowContent;
-    JTextArea displayField;
+    JTextField displayField;
 
     JButton numButtons[] = new JButton[10];
     JButton buttonAC;
@@ -60,11 +55,12 @@ public class Calculator {
         p3.setLayout(gL2);
 
         //Create input text field
-        displayField = new JTextArea();
+        displayField = new JTextField();
         displayField.setFont(textFont);
         displayField.setEditable(false);
         displayField.setForeground(Color.BLUE);
-        displayField.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
+        displayField.setHorizontalAlignment(SwingConstants.RIGHT);
+//        displayField.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
 
         //Create all the buttons
         for (int i = 0; i < 10; i++) {
@@ -139,9 +135,6 @@ public class Calculator {
         frame.pack();
         // Наконец, отображаем окно
         frame.setVisible(true);
-
-        for(int i = 0; i < 4; i++)
-            function[i] = false;
 
         CalculatorPlay calcEngine = new CalculatorPlay(this);
 
