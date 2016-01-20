@@ -1,3 +1,7 @@
+package calculator;
+
+import calculator.Calculator;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -6,7 +10,7 @@ import java.awt.event.ActionListener;
  * Created by Dmitry on 27/12/15.
  */
 
-public class CalculatorPlay implements ActionListener {
+public class CalculatorEngine implements ActionListener {
 
     Calculator parent; //ссылка на окно калькулятора
 
@@ -17,7 +21,7 @@ public class CalculatorPlay implements ActionListener {
     double[] temporary = {0, 0};
 
     // Конструктор сохраняет ссылку на окно калькулятора в переменной экземпляра класса
-    CalculatorPlay(Calculator parent) {
+    CalculatorEngine(Calculator parent) {
         this.parent = parent;
         for (int i = 0; i < 4; i++) {
             function[i] = false;
@@ -51,9 +55,9 @@ public class CalculatorPlay implements ActionListener {
         double result = 0;
         if ((!"".equals(parent.displayField.getText())) && (!"Can't do that!".equals(parent.displayField.getText())))
             temporary[1] = Double.parseDouble(parent.displayField.getText());
-        System.out.println(temporary[1]);
+//        System.out.println(temporary[1]);
         try {
-            if (function[0] == true) {
+            if (function[0] == true)
                 result = (temporary[0] + temporary[1]);
                 else if (function[1] == true)
                     result = temporary[0] - temporary[1];
@@ -62,7 +66,6 @@ public class CalculatorPlay implements ActionListener {
                 else if (function[3] == true)
                     result = temporary[0] / temporary[1];
                 parent.displayField.setText(Double.toString(result));
-            } else parent.displayField.setText(parent.displayField.getText());
             if (function[3] == true && temporary[1] == 0)
                 parent.displayField.setText("Can't do that!");
             for (int i = 0; i < 4; i++)

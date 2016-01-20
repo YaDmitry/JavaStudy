@@ -1,7 +1,7 @@
+package calculator;
+
 import javax.swing.*;
 import java.awt.*;
-import java.util.Locale;
-
 
 public class Calculator {
 
@@ -9,12 +9,10 @@ public class Calculator {
 //    No errors
 //    Unit tests all operations
 //    Smoke test ROBOT
-//    TRY - CATCH
-//    2 строки
 
     //Set default font for the buttons
     Font buttonFont = new Font("OCR A Extended", 0, 40);
-    Font textFont = new Font("OCR A Extended", 0, 30);
+    Font textFont = new Font("OCR A Extended", 0, 25);
 
     // Describe all calculator elements
     JPanel windowContent;
@@ -36,7 +34,7 @@ public class Calculator {
 
     // В конструкторе создаются все компоненты и добавляются на фрейм
     // с помощью комбинации Borderlayout и Gridlayout
-    Calculator() {
+    public Calculator() {
 
         //Create all the panels with specified schema
         windowContent = new JPanel();
@@ -125,7 +123,7 @@ public class Calculator {
         p3.add(numButtons[8]);
 
         //Создаём фрейм и задаём его основную панель
-        JFrame frame = new JFrame("Calculator");
+        JFrame frame = new JFrame("calculator.Calculator");
         frame.setContentPane(windowContent);
         frame.setLocationRelativeTo(null);  //this will center an app
         frame.setDefaultCloseOperation(frame.EXIT_ON_CLOSE);
@@ -136,7 +134,7 @@ public class Calculator {
         // Наконец, отображаем окно
         frame.setVisible(true);
 
-        CalculatorPlay calcEngine = new CalculatorPlay(this);
+        CalculatorEngine calcEngine = new CalculatorEngine(this);
 
         for (int i = 0; i < 10; i++) {
             numButtons[i].addActionListener(calcEngine);
