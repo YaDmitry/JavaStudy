@@ -1,6 +1,10 @@
 package calculator;
 
-import javax.swing.*;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+import javax.swing.SwingConstants;
 import java.awt.*;
 
 public class Calculator {
@@ -31,6 +35,46 @@ public class Calculator {
     JPanel p1;
     JPanel p2;
     JPanel p3;
+
+    public  JTextField getDisplayField() {
+        return displayField;
+    }
+
+    public JButton[] getNumButtons() {
+        return numButtons;
+    }
+
+    public  JButton getButtonAC() {
+        return buttonAC;
+    }
+
+    public  JButton getButtonPoint() {
+        return buttonPoint;
+    }
+
+    public  JButton getButtonEqual() {
+        return buttonEqual;
+    }
+
+    public  JButton getButtonPlus() {
+        return buttonPlus;
+    }
+
+    public  JButton getButtonMinus() {
+        return buttonMinus;
+    }
+
+    public  JButton getButtonDivide() {
+        return buttonDivide;
+    }
+
+    public  JButton getButtonMultiply() {
+        return buttonMultiply;
+    }
+
+    public  JButton getButtonX2() {
+        return buttonX2;
+    }
 
     // В конструкторе создаются все компоненты и добавляются на фрейм
     // с помощью комбинации Borderlayout и Gridlayout
