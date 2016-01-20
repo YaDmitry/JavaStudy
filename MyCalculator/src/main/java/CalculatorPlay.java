@@ -9,16 +9,19 @@ import java.awt.event.ActionListener;
 public class CalculatorPlay implements ActionListener {
 
     Calculator parent; //ссылка на окно калькулятора
-    double firstValue;
 
     //booleans for +,-,/,*
     boolean[] function = new boolean[4];
+    boolean function2 = false;
     //temporary doubles for calculations
     double[] temporary = {0, 0};
 
     // Конструктор сохраняет ссылку на окно калькулятора в переменной экземпляра класса
     CalculatorPlay(Calculator parent) {
         this.parent = parent;
+        for (int i = 0; i < 4; i++) {
+            function[i] = false;
+        }
     }
 
     //method for AC button
@@ -29,6 +32,7 @@ public class CalculatorPlay implements ActionListener {
                 function[i] = false;
             for (int i = 0; i < 2; i++)
                 temporary[i] = 0;
+            function2 = false;
         } catch (NullPointerException e) {
         }
     }
@@ -45,21 +49,25 @@ public class CalculatorPlay implements ActionListener {
     //method to get Result
     public void getResult() {
         double result = 0;
-        temporary[1] = Double.parseDouble(parent.displayField.getText());
+        if ((!"".equals(parent.displayField.getText())) && (!"Can't do that!".equals(parent.displayField.getText())))
+            temporary[1] = Double.parseDouble(parent.displayField.getText());
+        System.out.println(temporary[1]);
         try {
-            if (function[2] == true)
-                result = temporary[0] * temporary[1];
-                else if (function[3] == true)
-                    result = temporary[0] / temporary[1];
-                else if (function[0] == true)
-                    result = temporary[0] + temporary[1];
+            if (function[0] == true) {
+                result = (temporary[0] + temporary[1]);
                 else if (function[1] == true)
                     result = temporary[0] - temporary[1];
+                else if (function[2] == true)
+                    result = temporary[0] * temporary[1];
+                else if (function[3] == true)
+                    result = temporary[0] / temporary[1];
                 parent.displayField.setText(Double.toString(result));
+            } else parent.displayField.setText(parent.displayField.getText());
             if (function[3] == true && temporary[1] == 0)
-            parent.displayField.setText("Can't do that!");
+                parent.displayField.setText("Can't do that!");
             for (int i = 0; i < 4; i++)
                 function[i] = false;
+            function2 = false;
         } catch (NumberFormatException e) {
         }
     }
@@ -69,57 +77,60 @@ public class CalculatorPlay implements ActionListener {
         // Получаем источник действия
         JButton clickedButton = (JButton) e.getSource();
         String dispFieldText = parent.displayField.getText();
-
-        double displayValue = 0;
-
-        // Получить число из дисплея калькулятора,
-        // если он не пустой.
-        if ((!"".equals(dispFieldText))) {
-            displayValue = Double.parseDouble(dispFieldText);
-        }
-
         String clickedButtonLabel = clickedButton.getText();
+        int count = dispFieldText.length() - dispFieldText.replaceAll("\\.", "").length();
 
-        for(int i = 0; i < 4; i++)
-            function[i] = false;
+        if (function2 == true)
+            dispFieldText = "";
 
-        for (int i = 0; i < 10; i++) {
-            if (e.getSource() == parent.numButtons[i])
-//                parent.displayField.setText(String.valueOf(i));
-                parent.displayField.setText(dispFieldText + clickedButtonLabel);
-        }
+            for (int i = 0; i < 10; i++) {
+                if (e.getSource() == parent.numButtons[i]) {
+                    parent.displayField.setText(dispFieldText + clickedButtonLabel);
+                    function2 = false;
+                }
+
+            }
 
         if (e.getSource() == parent.buttonPlus) {
             //Add function[0]
-            temporary[0] = Double.parseDouble(parent.displayField.getText());
-            firstValue = temporary[0];
+            if ((!"".equals(dispFieldText)))
+                temporary[0] = Double.parseDouble(dispFieldText);
             function[0] = true;
-            parent.displayField.setText("");
+            function2 = true;
+            parent.displayField.setText(dispFieldText);
         }
 
         if (e.getSource() == parent.buttonMinus) {
             //Minus function[1]
-            temporary[0] = Double.parseDouble(parent.displayField.getText());
+            if ((!"".equals(dispFieldText)))
+                temporary[0] = Double.parseDouble(dispFieldText);
             function[1] = true;
-            parent.displayField.setText("");
+            function2 = true;
+            parent.displayField.setText(dispFieldText);
         }
 
         if (e.getSource() == parent.buttonMultiply) {
             //Multiply function[2]
-            temporary[0] = Double.parseDouble(parent.displayField.getText());
+            if ((!"".equals(dispFieldText)))
+                temporary[0] = Double.parseDouble(dispFieldText);
             function[2] = true;
-            parent.displayField.setText("");
+            function2 = true;
+            parent.displayField.setText(dispFieldText);
         }
 
         if (e.getSource() == parent.buttonDivide) {
             //Divide function[3]
-            temporary[0] = Double.parseDouble(parent.displayField.getText());
+            if ((!"".equals(dispFieldText)))
+                temporary[0] = Double.parseDouble(dispFieldText);
             function[3] = true;
-            parent.displayField.setText("");
+            function2 = true;
+            parent.displayField.setText(dispFieldText);
         }
 
-        if (e.getSource() == parent.buttonPoint)
-            parent.displayField.setText(".");
+        if (e.getSource() == parent.buttonPoint && count == 0) {
+            parent.displayField.setText(dispFieldText + clickedButtonLabel);
+            function2 = false;
+        }
 
         if (e.getSource() == parent.buttonAC)
             ACbutton();
@@ -129,7 +140,6 @@ public class CalculatorPlay implements ActionListener {
 
         if (e.getSource() == parent.buttonEqual)
             getResult();
-
     }
 
 }
