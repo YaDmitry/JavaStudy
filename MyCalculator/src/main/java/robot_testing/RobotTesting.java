@@ -1,7 +1,6 @@
-package robot;
+package robot_testing;
 
 import calculator.Calculator;
-
 import javax.swing.JButton;
 import java.awt.*;
 import java.awt.event.InputEvent;
@@ -126,8 +125,9 @@ public class RobotTesting {
         } catch (AWTException e) {
             e.printStackTrace();
         }
-    }
 
+        System.exit(0);
+    }
 
     public static void click(JButton button) throws AWTException {
         Point p = button.getLocationOnScreen();
@@ -147,9 +147,9 @@ public class RobotTesting {
 
     public static void getResult(String actual, String expected, String operation) {
         if (actual.equals(expected))
-            System.out.println("\033[32m" + operation + " test has PASSED" + "\033[0m");
+            System.out.println("\033[32m" + operation + " test is PASSED" + "\033[0m");
         else {
-            System.out.print("\033[31m" + operation + " test has FAILED: " + "\033[0m");
+            System.out.print("\033[31m" + operation + " test is FAILED: " + "\033[0m");
             System.out.print("Actual = " + actual);
             System.out.println(", Expected = " + expected);
         }

@@ -19,6 +19,7 @@ public class Calculator {
     Font textFont = new Font("OCR A Extended", 0, 25);
 
     // Describe all calculator elements
+    JFrame frame;
     JPanel windowContent;
     JTextField displayField;
 
@@ -102,7 +103,6 @@ public class Calculator {
         displayField.setEditable(false);
         displayField.setForeground(Color.BLUE);
         displayField.setHorizontalAlignment(SwingConstants.RIGHT);
-//        displayField.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
 
         //Create all the buttons
         for (int i = 0; i < 10; i++) {
@@ -114,7 +114,7 @@ public class Calculator {
         buttonAC = new JButton("AC");
         buttonAC.setFont(buttonFont);
         buttonAC.setForeground(Color.red);
-        buttonX2 = new JButton("x2");
+        buttonX2 = new JButton("^2");
         buttonX2.setFont(buttonFont);
         buttonPoint = new JButton(".");
         buttonPoint.setFont(buttonFont);
@@ -167,10 +167,10 @@ public class Calculator {
         p3.add(numButtons[8]);
 
         //Создаём фрейм и задаём его основную панель
-        JFrame frame = new JFrame("calculator.Calculator");
+        frame = new JFrame("calculator.Calculator");
         frame.setContentPane(windowContent);
         frame.setLocationRelativeTo(null);  //this will center an app
-        frame.setDefaultCloseOperation(frame.EXIT_ON_CLOSE);
+        frame.setDefaultCloseOperation(frame.DISPOSE_ON_CLOSE);
         frame.setResizable(false);
         // делаем размер окна достаточным
         // для того, чтобы вместить все компоненты
