@@ -18,6 +18,24 @@ public class RobotTesting {
 
         Calculator calc = new Calculator();
 
+        //Checks you can press all the Numeric buttons
+        for (int i = 0; i < 10; i++) {
+            try {
+                click(calc.getNumButtons()[i]);
+            } catch (AWTException e) {
+                e.printStackTrace();
+            }
+        }
+        getResult(calc.getDisplayField().getText(), "0123456789", "Numeric");
+
+        //ClearField test
+        try {
+            click(calc.getButtonAC());
+            getResult(calc.getDisplayField().getText(), "", "ClearField");
+        } catch (AWTException e) {
+            e.printStackTrace();
+        }
+
         //Addition Test
         try {
             click(calc.getNumButtons()[3]);
@@ -26,15 +44,11 @@ public class RobotTesting {
             click(calc.getNumButtons()[7]);
             click(calc.getButtonEqual());
             getResult(calc.getDisplayField().getText(), "41.0", "Addition");
+            click(calc.getButtonAC());
         } catch (AWTException e) {
+            e.printStackTrace();
         }
 
-        //ClearField test
-        try {
-            click(calc.getButtonAC());
-            getResult(calc.getDisplayField().getText(), "", "ClearField");
-        } catch (AWTException e) {
-        }
 
         //Subtraction Test
         try {
@@ -49,6 +63,7 @@ public class RobotTesting {
             getResult(calc.getDisplayField().getText(), "-52.5", "Subtraction");
             click(calc.getButtonAC());
         } catch (AWTException e) {
+            e.printStackTrace();
         }
 
         //Division Test
@@ -63,6 +78,21 @@ public class RobotTesting {
             getResult(calc.getDisplayField().getText(), "23.4", "Division");
             click(calc.getButtonAC());
         } catch (AWTException e) {
+            e.printStackTrace();
+        }
+
+        //Checks whether you can Divide by ZERO
+        try {
+            click(calc.getNumButtons()[4]);
+            click(calc.getNumButtons()[6]);
+            click(calc.getButtonPoint());
+            click(calc.getNumButtons()[8]);
+            click(calc.getButtonDivide());
+            click(calc.getNumButtons()[0]);
+            click(calc.getButtonEqual());
+            getResult(calc.getDisplayField().getText(), "Can't do that!", "Divide by ZERO");
+        } catch (AWTException e) {
+            e.printStackTrace();
         }
 
         //Multiplication Test
@@ -80,8 +110,22 @@ public class RobotTesting {
             getResult(calc.getDisplayField().getText(), "673.92", "Multiplication");
             click(calc.getButtonAC());
         } catch (AWTException e) {
+            e.printStackTrace();
         }
 
+        //Double Value Test
+        try {
+            click(calc.getNumButtons()[1]);
+            click(calc.getNumButtons()[6]);
+            click(calc.getButtonX2());
+            click(calc.getButtonPlus());
+            click(calc.getNumButtons()[1]);
+            click(calc.getNumButtons()[4]);
+            click(calc.getButtonEqual());
+            getResult(calc.getDisplayField().getText(), "270.0", "Double Value");
+        } catch (AWTException e) {
+            e.printStackTrace();
+        }
     }
 
 
@@ -91,12 +135,12 @@ public class RobotTesting {
         r.mouseMove(p.x + button.getWidth() / 2, p.y + button.getHeight() / 2);
         r.mousePress(InputEvent.BUTTON1_MASK);
         try {
-            Thread.sleep(500);
+            Thread.sleep(300);
         } catch (Exception e) {
         }
         r.mouseRelease(InputEvent.BUTTON1_MASK);
         try {
-            Thread.sleep(500);
+            Thread.sleep(300);
         } catch (Exception e) {
         }
     }

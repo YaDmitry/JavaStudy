@@ -36,7 +36,7 @@ public class Calculator {
     JPanel p2;
     JPanel p3;
 
-    public  JTextField getDisplayField() {
+    public JTextField getDisplayField() {
         return displayField;
     }
 
@@ -44,35 +44,35 @@ public class Calculator {
         return numButtons;
     }
 
-    public  JButton getButtonAC() {
+    public JButton getButtonAC() {
         return buttonAC;
     }
 
-    public  JButton getButtonPoint() {
+    public JButton getButtonPoint() {
         return buttonPoint;
     }
 
-    public  JButton getButtonEqual() {
+    public JButton getButtonEqual() {
         return buttonEqual;
     }
 
-    public  JButton getButtonPlus() {
+    public JButton getButtonPlus() {
         return buttonPlus;
     }
 
-    public  JButton getButtonMinus() {
+    public JButton getButtonMinus() {
         return buttonMinus;
     }
 
-    public  JButton getButtonDivide() {
+    public JButton getButtonDivide() {
         return buttonDivide;
     }
 
-    public  JButton getButtonMultiply() {
+    public JButton getButtonMultiply() {
         return buttonMultiply;
     }
 
-    public  JButton getButtonX2() {
+    public JButton getButtonX2() {
         return buttonX2;
     }
 
