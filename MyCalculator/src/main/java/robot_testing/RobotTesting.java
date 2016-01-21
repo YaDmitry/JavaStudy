@@ -151,8 +151,7 @@ public class RobotTesting {
             System.out.println("\033[32m" + operation + " test is PASSED" + "\033[0m");
         else {
             System.out.print("\033[31m" + operation + " test is FAILED: " + "\033[0m");
-            System.out.print("Actual = " + actual);
-            System.out.println(", Expected = " + expected);
+            System.out.println("Actual = " + actual + ", Expected = " + expected);
         }
     }
 }
