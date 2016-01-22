@@ -6,19 +6,21 @@ import java.awt.*;
 public class Calculator {
 
 //    TODO
-//    No errors
-//    Unit tests all operations
-//    Smoke test ROBOT
+//    Double в памяти
+//    Assert JUnit
+//    Package private specified for getters
+//    Refactor code
+//    KidsBook
+//    Eckel Book
 
-    //Set default font for the buttons
+    //Fonts that will be used in the calculator
     Font buttonFont = new Font("OCR A Extended", 0, 40);
     Font textFont = new Font("OCR A Extended", 0, 25);
 
-    // Describe all calculator elements
+    // Calculator elements
     JFrame frame;
     JPanel windowContent;
     JTextField displayField;
-
     JButton numButtons[] = new JButton[10];
     JButton buttonAC;
     JButton buttonPoint;
@@ -28,11 +30,11 @@ public class Calculator {
     JButton buttonDivide;
     JButton buttonMultiply;
     JButton buttonX2;
-
     JPanel p1;
     JPanel p2;
     JPanel p3;
 
+    //Getters for
     public JTextField getDisplayField() {
         return displayField;
     }
