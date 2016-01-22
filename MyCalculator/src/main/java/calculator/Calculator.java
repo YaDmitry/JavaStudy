@@ -7,7 +7,7 @@ public class Calculator {
 
 //    TODO
 //    Double в памяти
-//    Assert JUnit
+//    Assert JUnit + TestNG
 //    Package private specified for getters
 //    Refactor code
 //    KidsBook
