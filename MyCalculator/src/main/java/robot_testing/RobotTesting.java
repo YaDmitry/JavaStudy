@@ -1,7 +1,9 @@
 package robot_testing;
 
-import javax.swing.*;
-import java.awt.*;
+import javax.swing.JButton;
+import java.awt.AWTException;
+import java.awt.Point;
+import java.awt.Robot;
 import java.awt.event.InputEvent;
 
 /**
@@ -11,7 +13,6 @@ import java.awt.event.InputEvent;
 public class RobotTesting {
 
     //Method to getLocationOnScreen and click on button
-    //Used for testing
     public static void click(JButton button) throws AWTException {
         Point p = button.getLocationOnScreen();
         Robot r = new Robot();
@@ -28,7 +29,7 @@ public class RobotTesting {
         }
     }
 
-//    public static void getResult(String actual, String expected, String operation) {
+//    public static void getResultClicked(String actual, String expected, String operation) {
 //        if (actual.equals(expected))
 //            System.out.println("\033[32m" + operation + " test is PASSED" + "\033[0m");
 //        else {

@@ -3,7 +3,7 @@ package calculator;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.awt.*;
+import java.awt.AWTException;
 
 import static org.junit.Assert.*;
 import static robot_testing.RobotTesting.click;
