@@ -13,11 +13,11 @@ import java.awt.GridLayout;
 public class Calculator {
 
 //    TODO
-//    Double в памяти
+//    Double в памяти http://habrahabr.ru/post/219595/
 //    Assert JUnit - DONE
 //    TestNG
-//    Package private specified for getters
-//    Refactor code
+//    Package private specified for getters - DONE
+//    Refactor code - DONE
 //    KidsBook
 //    Eckel Book
 
@@ -45,43 +45,43 @@ public class Calculator {
     //endregion
 
     //Getters for Calculator elements
-    public JTextField getDisplayField() {
+    JTextField getDisplayField() {
         return displayField;
     }
 
-    public JButton[] getNumButtons() {
+    JButton[] getNumButtons() {
         return numButtons;
     }
 
-    public JButton getButtonAC() {
+    JButton getButtonAC() {
         return buttonAC;
     }
 
-    public JButton getButtonPoint() {
+    JButton getButtonPoint() {
         return buttonPoint;
     }
 
-    public JButton getButtonEqual() {
+    JButton getButtonEqual() {
         return buttonEqual;
     }
 
-    public JButton getButtonPlus() {
+    JButton getButtonPlus() {
         return buttonPlus;
     }
 
-    public JButton getButtonMinus() {
+    JButton getButtonMinus() {
         return buttonMinus;
     }
 
-    public JButton getButtonDivide() {
+    JButton getButtonDivide() {
         return buttonDivide;
     }
 
-    public JButton getButtonMultiply() {
+    JButton getButtonMultiply() {
         return buttonMultiply;
     }
 
-    public JButton getButtonX2() {
+    JButton getButtonX2() {
         return buttonX2;
     }
 
@@ -123,7 +123,7 @@ public class Calculator {
         displayField.setHorizontalAlignment(SwingConstants.RIGHT);
         //endregion
 
-        //Create all the buttons
+        //region Create all the buttons
         for (int i = 0; i < 10; i++) {
             numButtons[i] = new JButton(String.valueOf(i));
             numButtons[i].setFont(buttonFont);
@@ -131,42 +131,14 @@ public class Calculator {
         }
 
         buttonAC = createButton("AC", Color.red, null, false);
-
-
-//        buttonAC = new JButton("AC");
-//        buttonAC.setFont(buttonFont);
-//        buttonAC.setForeground(null);
-//        buttonAC.setBackground(null);
-//        buttonAC.setOpaque(false);
-
-
-
-        buttonX2 = new JButton("^2");
-        buttonX2.setFont(buttonFont);
-        buttonPoint = new JButton(".");
-        buttonPoint.setFont(buttonFont);
-        buttonPoint.setBackground(Color.red);
-        buttonPoint.setOpaque(false);
-        buttonEqual = new JButton("=");
-        buttonEqual.setFont(buttonFont);
-        buttonEqual.setBackground(Color.orange);
-        buttonEqual.setOpaque(true);
-        buttonPlus = new JButton("+");
-        buttonPlus.setFont(buttonFont);
-        buttonPlus.setBackground(Color.orange);
-        buttonPlus.setOpaque(true);
-        buttonMinus = new JButton("-");
-        buttonMinus.setFont(buttonFont);
-        buttonMinus.setBackground(Color.orange);
-        buttonMinus.setOpaque(true);
-        buttonDivide = new JButton("/");
-        buttonDivide.setFont(buttonFont);
-        buttonDivide.setBackground(Color.orange);
-        buttonDivide.setOpaque(true);
-        buttonMultiply = new JButton("*");
-        buttonMultiply.setFont(buttonFont);
-        buttonMultiply.setBackground(Color.orange);
-        buttonMultiply.setOpaque(true);
+        buttonX2 = createButton("^2", null, null, false);
+        buttonPoint = createButton(".", null, Color.white, false);
+        buttonEqual = createButton("=", null, Color.orange, true);
+        buttonPlus = createButton("+", null, Color.orange, true);
+        buttonMinus = createButton("-", null, Color.orange, true);
+        buttonDivide = createButton("/", null, Color.orange, true);
+        buttonMultiply = createButton("*", null, Color.orange, true);
+        //endregion
 
         //region Add panels to panels with magic logic
         windowContent.add("North", displayField);
@@ -208,6 +180,8 @@ public class Calculator {
         frame.setVisible(true);
         //endregion
 
+
+        //Assign created buttons to ActionListener
         CalculatorEngine calcEngine = new CalculatorEngine(this);
 
         for (int i = 0; i < 10; i++) {
@@ -225,6 +199,7 @@ public class Calculator {
     }
 
     public static void main(String[] args) {
+        //Start calculator from main method
         Calculator calc = new Calculator();
     }
 
