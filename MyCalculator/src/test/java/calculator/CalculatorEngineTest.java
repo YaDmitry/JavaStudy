@@ -18,13 +18,13 @@ public class CalculatorEngineTest {
     Calculator calc;
 
     @BeforeMethod
-    public void setUp() throws Exception {
+    public void setUp() {
         calc = new Calculator();
     }
 
     @Test
     //Checks you can press all the Numeric buttons and Clear a text field after
-    public void numericTest() throws Exception {
+    public void numericTest() {
         for (int i = 0; i < 10; i++) {
             try {
                 click(calc.getNumButtons()[i]);
@@ -44,7 +44,7 @@ public class CalculatorEngineTest {
 
     @Test
     //Addition Test
-    public void additionTest() throws Exception {
+    public void additionTest() {
         try {
             click(calc.getNumButtons()[3]);
             click(calc.getNumButtons()[4]);
@@ -59,7 +59,7 @@ public class CalculatorEngineTest {
 
     @Test
     //Subtraction Test [should FAIL]
-    public void subtractionTest() throws Exception {
+    public void subtractionTest() {
         try {
             click(calc.getNumButtons()[4]);
             click(calc.getNumButtons()[4]);
@@ -77,7 +77,7 @@ public class CalculatorEngineTest {
 
     @Test
     //Division Test
-    public void divisionTest() throws Exception {
+    public void divisionTest() {
         try {
             click(calc.getNumButtons()[4]);
             click(calc.getNumButtons()[4]);
@@ -95,7 +95,7 @@ public class CalculatorEngineTest {
 
     @Test
     //Checks whether you can Divide by ZERO
-    public void divideZeroTest() throws Exception {
+    public void divideZeroTest() {
         try {
             click(calc.getNumButtons()[4]);
             click(calc.getNumButtons()[6]);
@@ -112,7 +112,7 @@ public class CalculatorEngineTest {
 
     @Test
     //Multiplication Test
-    public void multiplicationTest() throws Exception {
+    public void multiplicationTest() {
         try {
             click(calc.getNumButtons()[3]);
             click(calc.getNumButtons()[2]);
@@ -132,7 +132,7 @@ public class CalculatorEngineTest {
 
     @Test
     //Double Value Test
-    public void doubleValueTest() throws Exception {
+    public void doubleValueTest() {
         try {
             click(calc.getNumButtons()[1]);
             click(calc.getNumButtons()[6]);
