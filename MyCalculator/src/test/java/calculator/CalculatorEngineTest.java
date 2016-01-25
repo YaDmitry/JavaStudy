@@ -1,11 +1,12 @@
 package calculator;
 
-import org.junit.Before;
-import org.junit.Test;
 
-import java.awt.AWTException;
+import org.testng.Assert;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
 
-import static org.junit.Assert.*;
+import java.awt.*;
+
 import static robot_testing.RobotTesting.click;
 
 /**
@@ -16,7 +17,7 @@ public class CalculatorEngineTest {
 
     Calculator calc;
 
-    @Before
+    @BeforeMethod
     public void setUp() throws Exception {
         calc = new Calculator();
     }
@@ -31,13 +32,13 @@ public class CalculatorEngineTest {
                 e.printStackTrace();
             }
         }
-        assertEquals(calc.getDisplayField().getText(), "0123456789");
+        Assert.assertEquals(calc.getDisplayField().getText(), "0123456789");
         try {
             click(calc.getButtonAC());
         } catch (AWTException e) {
             e.printStackTrace();
         }
-        assertEquals(calc.getDisplayField().getText(), "");
+        Assert.assertEquals(calc.getDisplayField().getText(), "");
     }
 
 
@@ -53,7 +54,7 @@ public class CalculatorEngineTest {
         } catch (AWTException e) {
             e.printStackTrace();
         }
-        assertEquals(calc.getDisplayField().getText(), "41.0");
+        Assert.assertEquals(calc.getDisplayField().getText(), "41.0");
     }
 
     @Test
@@ -71,7 +72,7 @@ public class CalculatorEngineTest {
         } catch (AWTException e) {
             e.printStackTrace();
         }
-        assertEquals(calc.getDisplayField().getText(), "-52.5");
+        Assert.assertEquals(calc.getDisplayField().getText(), "-52.5");
     }
 
     @Test
@@ -89,7 +90,7 @@ public class CalculatorEngineTest {
         } catch (AWTException e) {
             e.printStackTrace();
         }
-        assertEquals(calc.getDisplayField().getText(), "223.4");
+        Assert.assertEquals(calc.getDisplayField().getText(), "223.4");
     }
 
     @Test
@@ -106,7 +107,7 @@ public class CalculatorEngineTest {
         } catch (AWTException e) {
             e.printStackTrace();
         }
-        assertEquals(calc.getDisplayField().getText(), "Can't do that!");
+        Assert.assertEquals(calc.getDisplayField().getText(), "Can't do that!");
     }
 
     @Test
@@ -126,7 +127,7 @@ public class CalculatorEngineTest {
         } catch (AWTException e) {
             e.printStackTrace();
         }
-        assertEquals(calc.getDisplayField().getText(), "673.92");
+        Assert.assertEquals(calc.getDisplayField().getText(), "673.92");
     }
 
     @Test
@@ -143,6 +144,6 @@ public class CalculatorEngineTest {
         } catch (AWTException e) {
             e.printStackTrace();
         }
-        assertEquals(calc.getDisplayField().getText(), "270.0");
+        Assert.assertEquals(calc.getDisplayField().getText(), "270.0");
     }
 }
