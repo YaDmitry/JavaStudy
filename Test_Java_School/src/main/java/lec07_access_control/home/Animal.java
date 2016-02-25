@@ -5,6 +5,8 @@ package lec07_access_control.home;
  */
 public class Animal extends Entity {
 
+
+
     @Override
     void eatMeal() {
         System.out.println("Я кушаю мясные продукты.");
