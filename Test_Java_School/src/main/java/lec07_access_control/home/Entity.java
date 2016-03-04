@@ -24,5 +24,4 @@ abstract class Entity {
     }
 
     abstract void eatMeal();
-
 }

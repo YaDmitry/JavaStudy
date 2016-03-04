@@ -6,16 +6,20 @@ package lec07_access_control.home;
 public class Animal extends Entity {
 
 
+    Animal(boolean isAnimal) {
+        super(isAnimal);
+    }
+
+    @Override
+    protected void startLive() {
+        super.startLive();
+    }
 
     @Override
     void eatMeal() {
-        System.out.println("Я кушаю мясные продукты.");
     }
 
-    void amIAlive() {
-        if (isAnimal == true) {
-            System.out.println("Я существую в мире.");
-
-        } else System.out.println("Я НЕ существую в мире.");
+    public static void main(String[] args) {
+//        new startLive
     }
 }
