@@ -3,11 +3,10 @@ package lec07_access_control.home;
 /**
  * Created by Dmitry on 24/02/16.
  */
-public class Animal extends Entity {
+public class Animal extends Entity implements MakeNoise {
 
-
-    Animal(boolean isAnimal) {
-        super(isAnimal);
+    Animal() {
+        super(true);
     }
 
     @Override
@@ -17,9 +16,11 @@ public class Animal extends Entity {
 
     @Override
     void eatMeal() {
+        System.out.println("Я ем мясо");
     }
 
-    public static void main(String[] args) {
-//        new startLive
+    @Override
+    public void makeNoise() {
+        System.out.println("Я издаю звуки");
     }
 }

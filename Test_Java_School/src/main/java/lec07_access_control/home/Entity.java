@@ -23,5 +23,9 @@ abstract class Entity {
         System.out.println("Закончить Жить!");
     }
 
+    public boolean getValueIsAlive(){
+        return isAlive;
+    }
+
     abstract void eatMeal();
 }
