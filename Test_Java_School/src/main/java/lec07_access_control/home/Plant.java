@@ -7,10 +7,11 @@ public class Plant extends Entity {
 
     Plant() {
         super(false);
+        System.out.println("isAnimal = " + super.isAnimal);
     }
 
     @Override
     void eatMeal() {
-        System.out.println("Я кушаю воду.");
+        System.out.println("Я кушаю воду");
     }
 }

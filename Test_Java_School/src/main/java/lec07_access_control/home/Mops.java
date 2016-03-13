@@ -5,4 +5,7 @@ package lec07_access_control.home;
  */
 public class Mops extends Dog {
 
+    Mops(String myName) {
+        super(myName);
+    }
 }
