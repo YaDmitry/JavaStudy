@@ -5,10 +5,8 @@ import java.util.Set;
 /**
  * Created by dmya on 3/15/2016.
  */
-public class UserReader {
 
+public class User {
     String userName;
     Set<Book> userBooks;
-
-
 }
