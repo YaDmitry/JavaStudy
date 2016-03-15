@@ -10,6 +10,8 @@ package lec07_access_control.home;
  * Только животные могут издавать звуки.
  * Класс Entity не должен быть виден нигде, кроме своего пакета.
  * Методы начатьЖить и  закончитьЖить класса Entity  не должны быть доступны никому, кроме наследников.
+ *
+ * [Entity|isAnimal:boolean;isAlive:boolean|#startLive():void;#endLive():void;eatMeal():void]^-[Animal|+makeNoise():void], [Animal]^-[Dog|name:String|+getName():void], [Dog]^-[Mops], [Entity]^-[Plant]
  */
 
 abstract class Entity {

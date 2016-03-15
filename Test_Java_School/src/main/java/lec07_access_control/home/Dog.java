@@ -7,9 +7,13 @@ public class Dog extends Animal {
 
     String name;
 
-    Dog(String myName) {
+    public Dog(String myName) {
         super();
         this.name = myName;
+    }
+
+    public void startLive(){
+        super.startLive();
     }
 
     public void getName() {

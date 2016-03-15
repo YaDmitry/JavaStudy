@@ -20,7 +20,8 @@ public class Animal extends Entity {
         System.out.println("Я ем мясо");
     }
 
-    public void makeNoise() {
+    void makeNoise(){
         System.out.println("Я издаю звуки");
     }
+
 }
