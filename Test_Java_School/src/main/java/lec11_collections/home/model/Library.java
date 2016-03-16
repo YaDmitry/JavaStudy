@@ -2,6 +2,8 @@ package lec11_collections.home.model;
 
 import java.util.*;
 
+import static lec11_collections.home.model.Logging.*;
+
 /**
  * Created by dmya on 3/15/2016.
  */
@@ -17,14 +19,14 @@ public class Library {
         //check if user already has requested book
         Book existedBook = findBookByName(user.userBooks, bookName);
         if (existedBook != null) {
-            System.out.println("Пользователь " + user.userName + " уже взял книгу " + bookName + ", он не может взять ее повторно.");
+            System.out.println("Читатель " + makeItGreen(user.userName) + " уже взял(а) книгу " + makeItYellow(bookName) + ", он(а) не может взять ее повторно.");
             return;
         }
 
         //check if requested book exists in the Library
         Book requestedBook = findBookByName(libraryBooks, bookName);
         if (requestedBook == null) {
-            System.out.println("Пользователь " + user.userName + " попросил книгу " + bookName + ": КНИГА НЕ НАЙДЕНА! У нас только художественная литература.");
+            System.out.println("Читатель " + makeItGreen(user.userName) + " попросил(а) книгу " + makeItYellow(bookName) + ": " + makeItRed("КНИГА НЕ НАЙДЕНА!") + " У нас только художественная литература.");
             return;
         }
 
@@ -35,10 +37,10 @@ public class Library {
         if (currentQty != 0) {
             bookQty.put(bookName, currentQty - 1);
             user.userBooks.add(requestedBook);
-            System.out.println("Пользователь " + user.userName + " взял почитать книгу " + bookName + ".");
+            System.out.println("Читатель " + makeItGreen(user.userName) + " взял(а) книгу " + makeItYellow(bookName) + ".");
         } else {
             usersQueue.add(new BookRequest(user, requestedBook));
-            System.out.println("Пользователь " + user.userName + " добавлен в очередь на книгу " + requestedBook.bookName + ".");
+            System.out.println("Читатель " + makeItGreen(user.userName) + " добавлен(а) в очередь на книгу " + makeItYellow(requestedBook.bookName) + ".");
         }
     }
 
@@ -51,13 +53,19 @@ public class Library {
         return null;
     }
 
-    //Print all the available books in the Library
+    //Print all available books in the Library
     public void printAllBooks() {
         //Move collection SetBooks into ArrayList. It's possible now to sort Books by Author name
         List<Book> sortedListOfBooks = new ArrayList<Book>(libraryBooks);
         Collections.sort(sortedListOfBooks, new BookComparator());
         for (Book book : sortedListOfBooks)
-            System.out.println(book.bookAuthor + ": " + book.bookName + ", доступно: " + bookQty.get(book.bookName));
+            System.out.println(makeItYellow(book.bookAuthor + ": " + book.bookName) + ", доступно: " + bookQty.get(book.bookName));
+    }
+
+    //Print all Users in Queue
+    public void printQueueUsers() {
+        for (BookRequest queue : usersQueue)
+            System.out.println(makeItGreen(queue.user.userName) + " ожидает книгу " + makeItYellow(queue.book.bookName) + ".");
     }
 }
 
