@@ -6,11 +6,11 @@ package lec11_collections.home.model;
 
 public class Book {
 
-    public String bookName; //the book name will be unique for the whole library
-    public String bookAuthor;
+    final public String bookName; //the book name will be unique for the whole library
+    final public String bookAuthor;
 
-    public Book(String bookName, String bookAuthor) {
-        this.bookName = bookName;
+    public Book(String bookAuthor, String bookName) {
         this.bookAuthor = bookAuthor;
+        this.bookName = bookName;
     }
 }

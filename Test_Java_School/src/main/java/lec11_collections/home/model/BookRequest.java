@@ -6,4 +6,9 @@ package lec11_collections.home.model;
 public class BookRequest {
     User user;
     Book book;
+
+    public BookRequest(User user, Book book) {
+        this.user = user;
+        this.book = book;
+    }
 }
