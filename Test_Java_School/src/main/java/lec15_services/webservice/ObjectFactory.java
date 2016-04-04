@@ -10,7 +10,7 @@ import javax.xml.namespace.QName;
 /**
  * This object contains factory methods for each 
  * Java content interface and Java element interface 
- * generated in the webservice package. 
+ * generated in the library package.
  * <p>An ObjectFactory allows you to programatically 
  * construct new instances of the Java representation 
  * for XML content. The Java representation of XML 
@@ -24,11 +24,11 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory {
 
-    private final static QName _SayResponse_QNAME = new QName("http://webservice/", "sayResponse");
-    private final static QName _Say_QNAME = new QName("http://webservice/", "say");
+    private final static QName _SayResponse_QNAME = new QName("http://library/", "sayResponse");
+    private final static QName _Say_QNAME = new QName("http://library/", "say");
 
     /**
-     * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: webservice
+     * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: library
      * 
      */
     public ObjectFactory() {
@@ -54,7 +54,7 @@ public class ObjectFactory {
      * Create an instance of {@link JAXBElement }{@code <}{@link SayResponse }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://webservice/", name = "sayResponse")
+    @XmlElementDecl(namespace = "http://library/", name = "sayResponse")
     public JAXBElement<SayResponse> createSayResponse(SayResponse value) {
         return new JAXBElement<SayResponse>(_SayResponse_QNAME, SayResponse.class, null, value);
     }
@@ -63,7 +63,7 @@ public class ObjectFactory {
      * Create an instance of {@link JAXBElement }{@code <}{@link Say }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://webservice/", name = "say")
+    @XmlElementDecl(namespace = "http://library/", name = "say")
     public JAXBElement<Say> createSay(Say value) {
         return new JAXBElement<Say>(_Say_QNAME, Say.class, null, value);
     }
