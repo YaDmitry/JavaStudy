@@ -17,7 +17,7 @@ import javax.xml.ws.ResponseWrapper;
  * Generated source version: 2.2
  * 
  */
-@WebService(name = "SayWebService", targetNamespace = "http://library/")
+@WebService(name = "SayWebService", targetNamespace = "http://client/")
 @XmlSeeAlso({
     ObjectFactory.class
 })
@@ -32,9 +32,9 @@ public interface SayWebService {
      */
     @WebMethod
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "say", targetNamespace = "http://library/", className = "library.Say")
-    @ResponseWrapper(localName = "sayResponse", targetNamespace = "http://library/", className = "library.SayResponse")
-    @Action(input = "http://library/SayWebService/sayRequest", output = "http://library/SayWebService/sayResponse")
+    @RequestWrapper(localName = "say", targetNamespace = "http://client/", className = "client.Say")
+    @ResponseWrapper(localName = "sayResponse", targetNamespace = "http://client/", className = "client.SayResponse")
+    @Action(input = "http://client/SayWebService/sayRequest", output = "http://client/SayWebService/sayResponse")
     public String say(
         @WebParam(name = "arg0", targetNamespace = "")
         String arg0);

@@ -17,14 +17,14 @@ import javax.xml.ws.WebServiceFeature;
  * Generated source version: 2.2
  * 
  */
-@WebServiceClient(name = "SayWebServiceService", targetNamespace = "http://library/", wsdlLocation = "http://10.233.57.103:8888/ws/server?WSDL")
+@WebServiceClient(name = "SayWebServiceService", targetNamespace = "http://client/", wsdlLocation = "http://10.233.57.103:8888/ws/server?WSDL")
 public class SayWebServiceService
     extends Service
 {
 
     private final static URL SAYWEBSERVICESERVICE_WSDL_LOCATION;
     private final static WebServiceException SAYWEBSERVICESERVICE_EXCEPTION;
-    private final static QName SAYWEBSERVICESERVICE_QNAME = new QName("http://library/", "SayWebServiceService");
+    private final static QName SAYWEBSERVICESERVICE_QNAME = new QName("http://client/", "SayWebServiceService");
 
     static {
         URL url = null;
@@ -69,7 +69,7 @@ public class SayWebServiceService
      */
     @WebEndpoint(name = "SayWebServicePort")
     public SayWebService getSayWebServicePort() {
-        return super.getPort(new QName("http://library/", "SayWebServicePort"), SayWebService.class);
+        return super.getPort(new QName("http://client/", "SayWebServicePort"), SayWebService.class);
     }
 
     /**
@@ -81,7 +81,7 @@ public class SayWebServiceService
      */
     @WebEndpoint(name = "SayWebServicePort")
     public SayWebService getSayWebServicePort(WebServiceFeature... features) {
-        return super.getPort(new QName("http://library/", "SayWebServicePort"), SayWebService.class, features);
+        return super.getPort(new QName("http://client/", "SayWebServicePort"), SayWebService.class, features);
     }
 
     private static URL __getWsdlLocation() {

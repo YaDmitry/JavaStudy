@@ -19,7 +19,7 @@ import lec11_collections.home.model.User;
 
 public class WorkingLibrary {
 
-    //<editor-fold desc="final Strings of library books">
+    //<editor-fold desc="final Strings of client books">
     public static final String LEO_TOLSTOY = "Лев Толстой";
     public static final String IVAN_TURGENEV = "Иван Тургенев";
     public static final String FYODOR_DOSTOYEVSKY = "Федор Достоевский";
@@ -88,7 +88,7 @@ public class WorkingLibrary {
         Book b8 = new Book(ALEXANDER_PUSHKIN, RUSLAN_AND_LUDMILA);
         //</editor-fold>
 
-        //<editor-fold desc="Populate library with Books">
+        //<editor-fold desc="Populate client with Books">
         library.libraryBooks.add(b1);
         library.libraryBooks.add(b2);
         library.libraryBooks.add(b3);
