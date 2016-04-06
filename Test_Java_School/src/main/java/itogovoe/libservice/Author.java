@@ -84,4 +84,8 @@ public class Author {
         this.surname = value;
     }
 
+    public String toString(){
+        this.name
+    }
+
 }

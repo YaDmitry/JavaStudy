@@ -19,7 +19,5 @@ public class LibClient {
         LibraryWS libraryWSImplPort = service.getLibraryWSImplPort();
         List<Author> authors = libraryWSImplPort.getAuthors(); //ctrl+alt+V
         System.out.println(authors);
-
-
     }
 }

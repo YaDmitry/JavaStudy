@@ -25,7 +25,7 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "takeBookResponse")
+@XmlType(name = "takeBookResponse1")
 public class TakeBookResponse {
 
 
