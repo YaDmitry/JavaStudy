@@ -84,4 +84,8 @@ public class User {
         this.surname = value;
     }
 
+    public  String toString(){
+        return "Name = "+this.name+", Surname = "+this.surname;
+    }
+
 }

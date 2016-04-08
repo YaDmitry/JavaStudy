@@ -12,5 +12,4 @@ public class LibraryWSPublisher {
         LibraryWSClient client = new LibraryWSClient(ws);
         client.addUser("1", "2");
     }
-
 }

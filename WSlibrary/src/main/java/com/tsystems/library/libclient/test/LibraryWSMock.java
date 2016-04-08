@@ -21,7 +21,7 @@ public class LibraryWSMock implements LibraryWS {
 
     public LibraryWSMock() {
         User u1 = new User();
-        usersById.put("awelfhawef",u1);
+        usersById.put("awelfhawef", u1);
     }
 
     @Override
@@ -35,33 +35,33 @@ public class LibraryWSMock implements LibraryWS {
     }
 
     @Override
-    public boolean addUser(@WebParam(name = "arg0", targetNamespace = "") String arg0, @WebParam(name = "arg1", targetNamespace = "") String arg1) {
+    public boolean addUser(String arg0, String arg1) {
         User user = new User();
         user.setName(arg0);
         user.setSurname(arg1);
         // generate id
-        String id = Math.ceil(Math.random()*100) + "-" + Math.ceil(Math.random()*100);
+        String id = Math.ceil(Math.random() * 100) + "-" + Math.ceil(Math.random() * 100);
         usersById.put(id, user);
         return true;
     }
 
     @Override
-    public List<Book> getBooks(@WebParam(name = "arg0", targetNamespace = "") Author arg0) {
+    public List<Book> getBooks(Author arg0) {
         return null;
     }
 
     @Override
-    public void takeBook(@WebParam(name = "arg0", targetNamespace = "") User arg0, @WebParam(name = "arg1", targetNamespace = "") Book arg1) {
+    public void takeBook(User arg0, Book arg1) {
 
     }
 
     @Override
-    public void returnBook(@WebParam(name = "arg0", targetNamespace = "") User arg0, @WebParam(name = "arg1", targetNamespace = "") Book arg1) {
+    public void returnBook(User arg0, Book arg1) {
 
     }
 
     @Override
-    public Book getBook(@WebParam(name = "arg0", targetNamespace = "") Book arg0) {
+    public Book getBook(Book arg0) {
         return null;
     }
 
@@ -76,7 +76,7 @@ public class LibraryWSMock implements LibraryWS {
     }
 
     @Override
-    public boolean isWaiting(@WebParam(name = "arg0", targetNamespace = "") User arg0, @WebParam(name = "arg1", targetNamespace = "") Book arg1) {
+    public boolean isWaiting(User arg0, Book arg1) {
         return false;
     }
 }
