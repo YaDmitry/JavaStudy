@@ -1,11 +1,10 @@
-package com.tsystems.library.libclient.test;
+package com.tsystems.library.libclient;
 
 import com.tsystems.library.libservice.Author;
 import com.tsystems.library.libservice.Book;
 import com.tsystems.library.libservice.LibraryWS;
 import com.tsystems.library.libservice.User;
 
-import javax.jws.WebParam;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;

@@ -8,9 +8,9 @@ import javax.xml.bind.annotation.XmlType;
 
 /**
  * <p>Java class for user complex type.
- * 
+ * <p>
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ * <p>
  * <pre>
  * &lt;complexType name="user">
  *   &lt;complexContent>
@@ -23,13 +23,11 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "user", propOrder = {
-    "name",
-    "surname"
+        "name",
+        "surname"
 })
 public class User {
 
@@ -38,11 +36,9 @@ public class User {
 
     /**
      * Gets the value of the name property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getName() {
         return name;
@@ -50,11 +46,9 @@ public class User {
 
     /**
      * Sets the value of the name property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setName(String value) {
         this.name = value;
@@ -62,11 +56,9 @@ public class User {
 
     /**
      * Gets the value of the surname property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getSurname() {
         return surname;
@@ -74,18 +66,16 @@ public class User {
 
     /**
      * Sets the value of the surname property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setSurname(String value) {
         this.surname = value;
     }
 
-    public  String toString(){
-        return "Name = "+this.name+", Surname = "+this.surname;
+    public String toString() {
+        return "Name = " + this.name + ", Surname = " + this.surname;
     }
 
 }

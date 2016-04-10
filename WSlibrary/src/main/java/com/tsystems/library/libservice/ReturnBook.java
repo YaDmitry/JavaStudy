@@ -8,9 +8,9 @@ import javax.xml.bind.annotation.XmlType;
 
 /**
  * <p>Java class for returnBook complex type.
- * 
+ * <p>
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ * <p>
  * <pre>
  * &lt;complexType name="returnBook">
  *   &lt;complexContent>
@@ -23,13 +23,11 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "ReturnBook", propOrder = {
-    "arg0",
-    "arg1"
+        "arg0",
+        "arg1"
 })
 public class ReturnBook {
 
@@ -38,11 +36,9 @@ public class ReturnBook {
 
     /**
      * Gets the value of the arg0 property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link User }
-     *     
+     *
+     * @return possible object is
+     * {@link User }
      */
     public User getArg0() {
         return arg0;
@@ -50,11 +46,9 @@ public class ReturnBook {
 
     /**
      * Sets the value of the arg0 property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link User }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link User }
      */
     public void setArg0(User value) {
         this.arg0 = value;
@@ -62,11 +56,9 @@ public class ReturnBook {
 
     /**
      * Gets the value of the arg1 property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Book }
-     *     
+     *
+     * @return possible object is
+     * {@link Book }
      */
     public Book getArg1() {
         return arg1;
@@ -74,11 +66,9 @@ public class ReturnBook {
 
     /**
      * Sets the value of the arg1 property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Book }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Book }
      */
     public void setArg1(Book value) {
         this.arg1 = value;

@@ -1,6 +1,5 @@
 package com.tsystems.library.libclient;
 
-import com.tsystems.library.libclient.test.LibraryWSMock;
 import com.tsystems.library.libservice.*;
 
 import javax.xml.ws.WebServiceRef;
@@ -23,10 +22,38 @@ public class TestWSClient {
             port = service.getLibraryWSImplPort();
         }
 //        LibraryWS libraryWSImplPort = service.getLibraryWSImplPort();
-//        List<Author> authors = port.getAuthors(); //ctrl+alt+V
-//        boolean sdfsf = port.addUser("23", "sdfsf");
-//        System.out.println(authors);
+
+//      Add User | ctrl+alt+V
+        boolean isUserAdd = port.addUser("23", "sdfsf");
+        System.out.println(isUserAdd);
+
+//      Get Authors
+        List<Author> authors = port.getAuthors();
+        System.out.println(authors);
+
+////      Get Book
+//        Book book = port.getBook();
+//
+////      Get Books
+//        List<Book> books = port.getBooks();
+
+//      Get User
         User user = port.getUser("d70c7f56-b238-4f42-bcbd-a0155ac6f6fd");
-        System.out.println("User = " + user);
+        System.out.println(user);
+
+//      Get UserIds
+        List<String> userIds = port.getUserIds();
+        System.out.println(userIds);
+//
+//      Is Waiting
+        boolean isWaiting = port.isWaiting();
+
+//      Return Book
+        port.returnBook();
+
+//      Take Book
+        port.takeBook();
+
+
     }
 }

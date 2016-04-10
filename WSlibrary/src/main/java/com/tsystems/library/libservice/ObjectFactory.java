@@ -8,18 +8,17 @@ import javax.xml.namespace.QName;
 
 
 /**
- * This object contains factory methods for each 
- * Java content interface and Java element interface 
- * generated in the libservice package. 
- * <p>An ObjectFactory allows you to programatically 
- * construct new instances of the Java representation 
- * for XML content. The Java representation of XML 
- * content can consist of schema derived interfaces 
- * and classes representing the binding of schema 
- * type definitions, element declarations and model 
- * groups.  Factory methods for each of these are 
+ * This object contains factory methods for each
+ * Java content interface and Java element interface
+ * generated in the libservice package.
+ * <p>An ObjectFactory allows you to programatically
+ * construct new instances of the Java representation
+ * for XML content. The Java representation of XML
+ * content can consist of schema derived interfaces
+ * and classes representing the binding of schema
+ * type definitions, element declarations and model
+ * groups.  Factory methods for each of these are
  * provided in this class.
- * 
  */
 @XmlRegistry
 public class ObjectFactory {
@@ -45,14 +44,12 @@ public class ObjectFactory {
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: libservice
-     * 
      */
     public ObjectFactory() {
     }
 
     /**
      * Create an instance of {@link GetAuthors }
-     * 
      */
     public GetAuthors createGetAuthors() {
         return new GetAuthors();
@@ -60,7 +57,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link GetAuthorsResponse }
-     * 
      */
     public GetAuthorsResponse createGetAuthorsResponse() {
         return new GetAuthorsResponse();
@@ -68,7 +64,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link GetUser }
-     * 
      */
     public GetUser createGetUser() {
         return new GetUser();
@@ -76,7 +71,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TakeBook }
-     * 
      */
     public TakeBook createTakeBook() {
         return new TakeBook();
@@ -84,7 +78,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link GetUserIdsResponse }
-     * 
      */
     public GetUserIdsResponse createGetUserIdsResponse() {
         return new GetUserIdsResponse();
@@ -92,7 +85,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link AddUserResponse }
-     * 
      */
     public AddUserResponse createAddUserResponse() {
         return new AddUserResponse();
@@ -100,7 +92,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link GetBookResponse }
-     * 
      */
     public GetBookResponse createGetBookResponse() {
         return new GetBookResponse();
@@ -108,7 +99,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link GetUserIds }
-     * 
      */
     public GetUserIds createGetUserIds() {
         return new GetUserIds();
@@ -116,7 +106,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link ReturnBookResponse }
-     * 
      */
     public ReturnBookResponse createReturnBookResponse() {
         return new ReturnBookResponse();
@@ -124,7 +113,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link AddUser }
-     * 
      */
     public AddUser createAddUser() {
         return new AddUser();
@@ -132,7 +120,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link GetBooksResponse }
-     * 
      */
     public GetBooksResponse createGetBooksResponse() {
         return new GetBooksResponse();
@@ -140,7 +127,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link ReturnBook }
-     * 
      */
     public ReturnBook createReturnBook() {
         return new ReturnBook();
@@ -148,7 +134,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link IsWaiting }
-     * 
      */
     public IsWaiting createIsWaiting() {
         return new IsWaiting();
@@ -156,7 +141,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link GetBooks }
-     * 
      */
     public GetBooks createGetBooks() {
         return new GetBooks();
@@ -164,7 +148,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link GetBook }
-     * 
      */
     public GetBook createGetBook() {
         return new GetBook();
@@ -172,7 +155,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link TakeBookResponse }
-     * 
      */
     public TakeBookResponse createTakeBookResponse() {
         return new TakeBookResponse();
@@ -180,7 +162,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link GetUserResponse }
-     * 
      */
     public GetUserResponse createGetUserResponse() {
         return new GetUserResponse();
@@ -188,7 +169,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link IsWaitingResponse }
-     * 
      */
     public IsWaitingResponse createIsWaitingResponse() {
         return new IsWaitingResponse();
@@ -196,7 +176,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link Author }
-     * 
      */
     public Author createAuthor() {
         return new Author();
@@ -204,7 +183,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link Book }
-     * 
      */
     public Book createBook() {
         return new Book();
@@ -212,7 +190,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link User }
-     * 
      */
     public User createUser() {
         return new User();
@@ -220,7 +197,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link TakeBook }{@code >}}
-     * 
      */
     @XmlElementDecl(namespace = "http://libservice/", name = "takeBook")
     public JAXBElement<TakeBook> createTakeBook(TakeBook value) {
@@ -229,7 +205,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link GetUserIdsResponse }{@code >}}
-     * 
      */
     @XmlElementDecl(namespace = "http://libservice/", name = "getUserIdsResponse")
     public JAXBElement<GetUserIdsResponse> createGetUserIdsResponse(GetUserIdsResponse value) {
@@ -238,7 +213,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link AddUserResponse }{@code >}}
-     * 
      */
     @XmlElementDecl(namespace = "http://libservice/", name = "addUserResponse")
     public JAXBElement<AddUserResponse> createAddUserResponse(AddUserResponse value) {
@@ -247,7 +221,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link GetBookResponse }{@code >}}
-     * 
      */
     @XmlElementDecl(namespace = "http://libservice/", name = "getBookResponse")
     public JAXBElement<GetBookResponse> createGetBookResponse(GetBookResponse value) {
@@ -256,7 +229,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link GetAuthors }{@code >}}
-     * 
      */
     @XmlElementDecl(namespace = "http://libservice/", name = "getAuthors")
     public JAXBElement<GetAuthors> createGetAuthors(GetAuthors value) {
@@ -265,7 +237,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link GetAuthorsResponse }{@code >}}
-     * 
      */
     @XmlElementDecl(namespace = "http://libservice/", name = "getAuthorsResponse")
     public JAXBElement<GetAuthorsResponse> createGetAuthorsResponse(GetAuthorsResponse value) {
@@ -274,7 +245,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link GetUser }{@code >}}
-     * 
      */
     @XmlElementDecl(namespace = "http://libservice/", name = "getUser")
     public JAXBElement<GetUser> createGetUser(GetUser value) {
@@ -283,7 +253,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link ReturnBook }{@code >}}
-     * 
      */
     @XmlElementDecl(namespace = "http://libservice/", name = "returnBook")
     public JAXBElement<ReturnBook> createReturnBook(ReturnBook value) {
@@ -292,7 +261,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link GetBooks }{@code >}}
-     * 
      */
     @XmlElementDecl(namespace = "http://libservice/", name = "getBooks")
     public JAXBElement<GetBooks> createGetBooks(GetBooks value) {
@@ -301,7 +269,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link IsWaiting }{@code >}}
-     * 
      */
     @XmlElementDecl(namespace = "http://libservice/", name = "isWaiting")
     public JAXBElement<IsWaiting> createIsWaiting(IsWaiting value) {
@@ -310,7 +277,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link GetUserIds }{@code >}}
-     * 
      */
     @XmlElementDecl(namespace = "http://libservice/", name = "getUserIds")
     public JAXBElement<GetUserIds> createGetUserIds(GetUserIds value) {
@@ -319,7 +285,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link ReturnBookResponse }{@code >}}
-     * 
      */
     @XmlElementDecl(namespace = "http://libservice/", name = "returnBookResponse")
     public JAXBElement<ReturnBookResponse> createReturnBookResponse(ReturnBookResponse value) {
@@ -328,7 +293,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link AddUser }{@code >}}
-     * 
      */
     @XmlElementDecl(namespace = "http://libservice/", name = "addUser")
     public JAXBElement<AddUser> createAddUser(AddUser value) {
@@ -337,7 +301,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link GetBooksResponse }{@code >}}
-     * 
      */
     @XmlElementDecl(namespace = "http://libservice/", name = "getBooksResponse")
     public JAXBElement<GetBooksResponse> createGetBooksResponse(GetBooksResponse value) {
@@ -346,7 +309,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link GetBook }{@code >}}
-     * 
      */
     @XmlElementDecl(namespace = "http://libservice/", name = "getBook")
     public JAXBElement<GetBook> createGetBook(GetBook value) {
@@ -355,7 +317,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link GetUserResponse }{@code >}}
-     * 
      */
     @XmlElementDecl(namespace = "http://libservice/", name = "getUserResponse")
     public JAXBElement<GetUserResponse> createGetUserResponse(GetUserResponse value) {
@@ -364,7 +325,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link IsWaitingResponse }{@code >}}
-     * 
      */
     @XmlElementDecl(namespace = "http://libservice/", name = "isWaitingResponse")
     public JAXBElement<IsWaitingResponse> createIsWaitingResponse(IsWaitingResponse value) {
@@ -373,7 +333,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link JAXBElement }{@code <}{@link TakeBookResponse }{@code >}}
-     * 
      */
     @XmlElementDecl(namespace = "http://libservice/", name = "takeBookResponse")
     public JAXBElement<TakeBookResponse> createTakeBookResponse(TakeBookResponse value) {

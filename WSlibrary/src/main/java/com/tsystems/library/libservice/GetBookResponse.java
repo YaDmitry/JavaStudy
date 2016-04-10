@@ -9,9 +9,9 @@ import javax.xml.bind.annotation.XmlType;
 
 /**
  * <p>Java class for getBookResponse complex type.
- * 
+ * <p>
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ * <p>
  * <pre>
  * &lt;complexType name="getBookResponse">
  *   &lt;complexContent>
@@ -23,12 +23,10 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "GetBookResponse", propOrder = {
-    "_return"
+        "_return"
 })
 public class GetBookResponse {
 
@@ -37,11 +35,9 @@ public class GetBookResponse {
 
     /**
      * Gets the value of the return property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Book }
-     *     
+     *
+     * @return possible object is
+     * {@link Book }
      */
     public Book getReturn() {
         return _return;
@@ -49,11 +45,9 @@ public class GetBookResponse {
 
     /**
      * Sets the value of the return property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Book }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Book }
      */
     public void setReturn(Book value) {
         this._return = value;

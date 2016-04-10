@@ -29,19 +29,19 @@ public interface LibraryWS {
      */
     @WebMethod
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "getUserIds", targetNamespace = "http://libservice/", className = "libservice.GetUserIds")
-    @ResponseWrapper(localName = "getUserIdsResponse", targetNamespace = "http://libservice/", className = "libservice.GetUserIdsResponse")
+    @RequestWrapper(localName = "getUserIds", targetNamespace = "http://libservice/", className = "GetUserIds")
+    @ResponseWrapper(localName = "getUserIdsResponse", targetNamespace = "http://libservice/", className = "GetUserIdsResponse")
     @Action(input = "http://libservice/LibraryWS/getUserIdsRequest", output = "http://libservice/LibraryWS/getUserIdsResponse")
     public List<String> getUserIds();
 
     /**
      * @param arg0
-     * @return returns libservice.User
+     * @return returns User
      */
     @WebMethod
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "getUser", targetNamespace = "http://libservice/", className = "libservice.GetUser")
-    @ResponseWrapper(localName = "getUserResponse", targetNamespace = "http://libservice/", className = "libservice.GetUserResponse")
+    @RequestWrapper(localName = "getUser", targetNamespace = "http://libservice/", className = "GetUser")
+    @ResponseWrapper(localName = "getUserResponse", targetNamespace = "http://libservice/", className = "GetUserResponse")
     @Action(input = "http://libservice/LibraryWS/getUserRequest", output = "http://libservice/LibraryWS/getUserResponse")
     public User getUser(
             @WebParam(name = "arg0", targetNamespace = "")
@@ -54,8 +54,8 @@ public interface LibraryWS {
      */
     @WebMethod
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "addUser", targetNamespace = "http://libservice/", className = "libservice.AddUser")
-    @ResponseWrapper(localName = "addUserResponse", targetNamespace = "http://libservice/", className = "libservice.AddUserResponse")
+    @RequestWrapper(localName = "addUser", targetNamespace = "http://libservice/", className = "AddUser")
+    @ResponseWrapper(localName = "addUserResponse", targetNamespace = "http://libservice/", className = "AddUserResponse")
     @Action(input = "http://libservice/LibraryWS/addUserRequest", output = "http://libservice/LibraryWS/addUserResponse")
     public boolean addUser(
             @WebParam(name = "arg0", targetNamespace = "")
@@ -65,12 +65,12 @@ public interface LibraryWS {
 
     /**
      * @param arg0
-     * @return returns java.util.List<libservice.Book>
+     * @return returns java.util.List<Book>
      */
     @WebMethod
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "getBooks", targetNamespace = "http://libservice/", className = "libservice.GetBooks")
-    @ResponseWrapper(localName = "getBooksResponse", targetNamespace = "http://libservice/", className = "libservice.GetBooksResponse")
+    @RequestWrapper(localName = "getBooks", targetNamespace = "http://libservice/", className = "GetBooks")
+    @ResponseWrapper(localName = "getBooksResponse", targetNamespace = "http://libservice/", className = "GetBooksResponse")
     @Action(input = "http://libservice/LibraryWS/getBooksRequest", output = "http://libservice/LibraryWS/getBooksResponse")
     public List<Book> getBooks(
             @WebParam(name = "arg0", targetNamespace = "")
@@ -81,8 +81,8 @@ public interface LibraryWS {
      * @param arg0
      */
     @WebMethod
-    @RequestWrapper(localName = "takeBook", targetNamespace = "http://libservice/", className = "libservice.TakeBook")
-    @ResponseWrapper(localName = "takeBookResponse", targetNamespace = "http://libservice/", className = "libservice.TakeBookResponse")
+    @RequestWrapper(localName = "takeBook", targetNamespace = "http://libservice/", className = "TakeBook")
+    @ResponseWrapper(localName = "takeBookResponse", targetNamespace = "http://libservice/", className = "TakeBookResponse")
     @Action(input = "http://libservice/LibraryWS/takeBookRequest", output = "http://libservice/LibraryWS/takeBookResponse")
     public void takeBook(
             @WebParam(name = "arg0", targetNamespace = "")
@@ -95,8 +95,8 @@ public interface LibraryWS {
      * @param arg0
      */
     @WebMethod
-    @RequestWrapper(localName = "returnBook", targetNamespace = "http://libservice/", className = "libservice.ReturnBook")
-    @ResponseWrapper(localName = "returnBookResponse", targetNamespace = "http://libservice/", className = "libservice.ReturnBookResponse")
+    @RequestWrapper(localName = "returnBook", targetNamespace = "http://libservice/", className = "ReturnBook")
+    @ResponseWrapper(localName = "returnBookResponse", targetNamespace = "http://libservice/", className = "ReturnBookResponse")
     @Action(input = "http://libservice/LibraryWS/returnBookRequest", output = "http://libservice/LibraryWS/returnBookResponse")
     public void returnBook(
             @WebParam(name = "arg0", targetNamespace = "")
@@ -106,24 +106,24 @@ public interface LibraryWS {
 
     /**
      * @param arg0
-     * @return returns libservice.Book
+     * @return returns Book
      */
     @WebMethod
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "getBook", targetNamespace = "http://libservice/", className = "libservice.GetBook")
-    @ResponseWrapper(localName = "getBookResponse", targetNamespace = "http://libservice/", className = "libservice.GetBookResponse")
+    @RequestWrapper(localName = "getBook", targetNamespace = "http://libservice/", className = "GetBook")
+    @ResponseWrapper(localName = "getBookResponse", targetNamespace = "http://libservice/", className = "GetBookResponse")
     @Action(input = "http://libservice/LibraryWS/getBookRequest", output = "http://libservice/LibraryWS/getBookResponse")
     public Book getBook(
             @WebParam(name = "arg0", targetNamespace = "")
                     Book arg0);
 
     /**
-     * @return returns java.util.List<libservice.Author>
+     * @return returns java.util.List<Author>
      */
     @WebMethod
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "getAuthors", targetNamespace = "http://libservice/", className = "libservice.GetAuthors")
-    @ResponseWrapper(localName = "getAuthorsResponse", targetNamespace = "http://libservice/", className = "libservice.GetAuthorsResponse")
+    @RequestWrapper(localName = "getAuthors", targetNamespace = "http://libservice/", className = "GetAuthors")
+    @ResponseWrapper(localName = "getAuthorsResponse", targetNamespace = "http://libservice/", className = "GetAuthorsResponse")
     @Action(input = "http://libservice/LibraryWS/getAuthorsRequest", output = "http://libservice/LibraryWS/getAuthorsResponse")
     public List<Author> getAuthors();
 
@@ -134,8 +134,8 @@ public interface LibraryWS {
      */
     @WebMethod
     @WebResult(targetNamespace = "")
-    @RequestWrapper(localName = "isWaiting", targetNamespace = "http://libservice/", className = "libservice.IsWaiting")
-    @ResponseWrapper(localName = "isWaitingResponse", targetNamespace = "http://libservice/", className = "libservice.IsWaitingResponse")
+    @RequestWrapper(localName = "isWaiting", targetNamespace = "http://libservice/", className = "IsWaiting")
+    @ResponseWrapper(localName = "isWaitingResponse", targetNamespace = "http://libservice/", className = "IsWaitingResponse")
     @Action(input = "http://libservice/LibraryWS/isWaitingRequest", output = "http://libservice/LibraryWS/isWaitingResponse")
     public boolean isWaiting(
             @WebParam(name = "arg0", targetNamespace = "")

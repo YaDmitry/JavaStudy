@@ -8,9 +8,9 @@ import javax.xml.bind.annotation.XmlType;
 
 /**
  * <p>Java class for getBook complex type.
- * 
+ * <p>
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ * <p>
  * <pre>
  * &lt;complexType name="getBook">
  *   &lt;complexContent>
@@ -22,12 +22,10 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "GetBook", propOrder = {
-    "arg0"
+        "arg0"
 })
 public class GetBook {
 
@@ -35,11 +33,9 @@ public class GetBook {
 
     /**
      * Gets the value of the arg0 property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link Book }
-     *     
+     *
+     * @return possible object is
+     * {@link Book }
      */
     public Book getArg0() {
         return arg0;
@@ -47,11 +43,9 @@ public class GetBook {
 
     /**
      * Sets the value of the arg0 property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link Book }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link Book }
      */
     public void setArg0(Book value) {
         this.arg0 = value;

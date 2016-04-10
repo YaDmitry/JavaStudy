@@ -1,6 +1,6 @@
 package com.tsystems.library;
 
-import com.tsystems.library.libclient.test.LibraryWSMock;
+import com.tsystems.library.libclient.LibraryWSMock;
 import com.tsystems.library.libservice.Author;
 import com.tsystems.library.libservice.LibraryWS;
 import com.tsystems.library.libservice.LibraryWSImplService;
