@@ -45,15 +45,14 @@ public class TestWSClient {
         List<String> userIds = port.getUserIds();
         System.out.println(userIds);
 //
-//      Is Waiting
-        boolean isWaiting = port.isWaiting();
-
-//      Return Book
-        port.returnBook();
-
-//      Take Book
-        port.takeBook();
-
+////      Is Waiting
+//        boolean isWaiting = port.isWaiting();
+//
+////      Return Book
+//        port.returnBook();
+//
+////      Take Book
+//        port.takeBook();
 
     }
 }

@@ -5,10 +5,7 @@ import com.tsystems.library.libservice.Book;
 import com.tsystems.library.libservice.LibraryWS;
 import com.tsystems.library.libservice.User;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Created by dyaprint on 07.04.2016.
@@ -16,16 +13,23 @@ import java.util.Map;
 public class LibraryWSMock implements LibraryWS {
 
     Map<String, User> usersById = new HashMap<>();
-//    List<User> users = new ArrayList<>();
+    List<Book> books = new ArrayList<>();
+
+
+//  List<User> users = new ArrayList<>();
 
     public LibraryWSMock() {
-        User u1 = new User();
+        User u1 = new
+                User();
         usersById.put("awelfhawef", u1);
     }
 
     @Override
     public List<String> getUserIds() {
-        return null;
+        Set<String> set = usersById.keySet();
+        ArrayList<String> result = new ArrayList<>();
+        result.addAll(set);
+        return result;
     }
 
     @Override
@@ -45,8 +49,19 @@ public class LibraryWSMock implements LibraryWS {
     }
 
     @Override
-    public List<Book> getBooks(Author arg0) {
-        return null;
+    public List<Book> getBooks(Author author) {
+        List<Book> result = null;
+        for (Book book : books) {
+            Author bookAuthor = book.getAuthor();
+            if (bookAuthor.getName().equals(author.getName())
+                    && bookAuthor.getSurname().equals(author.getSurname())) {
+                if (result == null) {
+                    result = new ArrayList<>();
+                }
+                result.add(book);
+            }
+        }
+        return result;
     }
 
     @Override
