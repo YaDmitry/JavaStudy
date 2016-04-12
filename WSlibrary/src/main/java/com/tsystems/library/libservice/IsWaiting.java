@@ -34,6 +34,14 @@ public class IsWaiting {
     protected User arg0;
     protected Book arg1;
 
+    public IsWaiting (User user, Book book) {
+        this.arg0 = user;
+        this.arg1 = book;
+    }
+
+    public IsWaiting () {
+    }
+
     /**
      * Gets the value of the arg0 property.
      *

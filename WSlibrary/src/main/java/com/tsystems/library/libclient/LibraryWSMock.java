@@ -1,9 +1,6 @@
 package com.tsystems.library.libclient;
 
-import com.tsystems.library.libservice.Author;
-import com.tsystems.library.libservice.Book;
-import com.tsystems.library.libservice.LibraryWS;
-import com.tsystems.library.libservice.User;
+import com.tsystems.library.libservice.*;
 
 import java.util.*;
 
@@ -14,14 +11,13 @@ public class LibraryWSMock implements LibraryWS {
 
     Map<String, User> usersById = new HashMap<>();
     List<Book> books = new ArrayList<>();
+    Queue<IsWaiting> waitingQueue = new ArrayDeque<IsWaiting>();
+
 
 
 //  List<User> users = new ArrayList<>();
 
     public LibraryWSMock() {
-        User u1 = new
-                User();
-        usersById.put("awelfhawef", u1);
     }
 
     @Override
@@ -65,17 +61,35 @@ public class LibraryWSMock implements LibraryWS {
     }
 
     @Override
-    public void takeBook(User arg0, Book arg1) {
+    public void takeBook(User user, Book takenBook) {
+        for (Book book : books) {
+            if (book.equals(takenBook)) {
+                if (book.getAmount() > 0) {
+                    book.setAmount(book.getAmount() - 1);
+                } else {
+                    waitingQueue.add(new IsWaiting(user, takenBook));
+                }
+            }
+        }
 
     }
 
     @Override
-    public void returnBook(User arg0, Book arg1) {
-
+    public void returnBook(User arg0, Book returnedBook) {
+        for (Book book : books) {
+            if (book.equals(returnedBook))
+            {
+                book.setAmount(book.getAmount() + 1);
+            }
+        }
     }
 
     @Override
-    public Book getBook(Book arg0) {
+    public Book getBook(Book gettedBook) {
+        for (Book book : books) {
+            if (book.equals(gettedBook))
+                return book;
+        }
         return null;
     }
 
@@ -91,6 +105,10 @@ public class LibraryWSMock implements LibraryWS {
 
     @Override
     public boolean isWaiting(User arg0, Book arg1) {
+        for (IsWaiting waiting : waitingQueue) {
+            if (waiting.getArg0().equals(arg0) && waiting.getArg1().equals(arg1))
+                return true;
+        }
         return false;
     }
 }

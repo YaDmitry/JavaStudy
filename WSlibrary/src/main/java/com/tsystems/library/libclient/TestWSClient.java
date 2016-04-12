@@ -24,35 +24,45 @@ public class TestWSClient {
 //        LibraryWS libraryWSImplPort = service.getLibraryWSImplPort();
 
 //      Add User | ctrl+alt+V
-        boolean isUserAdd = port.addUser("23", "sdfsf");
-        System.out.println(isUserAdd);
+        boolean isUserAdd1 = port.addUser("Name1", "Surname1");
+//        boolean isUserAdd2 = port.addUser("Name2", "Surname2");
+//        boolean isUserAdd3 = port.addUser("Name3", "Surname3");
 
-//      Get Authors
+        System.out.println(isUserAdd1);
+
+        List<String> userIds = port.getUserIds();
+        System.out.println(userIds);
+
+        User user = port.getUser(userIds.get(6));
+        System.out.println(user);
+
+
+////      Get Authors
         List<Author> authors = port.getAuthors();
         System.out.println(authors);
 
-////      Get Book
-//        Book book = port.getBook();
+        //////      Get Books
+        List<Book> books = port.getBooks(authors.get(2));
+        System.out.println(books);
 //
-////      Get Books
-//        List<Book> books = port.getBooks();
+//////      Get Book
+        Book book = port.getBook(books.get(0));
+        System.out.println(book);
 
-//      Get User
-        User user = port.getUser("d70c7f56-b238-4f42-bcbd-a0155ac6f6fd");
-        System.out.println(user);
+        //      Take Book
+        port.takeBook(user, book);
 
-//      Get UserIds
-        List<String> userIds = port.getUserIds();
-        System.out.println(userIds);
+        //      Return Book
+        port.returnBook(user, book);
+
+
+//      Is Waiting
+        boolean isWaiting = port.isWaiting(user, book);
+        System.out.println(isWaiting);
 //
-////      Is Waiting
-//        boolean isWaiting = port.isWaiting();
+
 //
-////      Return Book
-//        port.returnBook();
-//
-////      Take Book
-//        port.takeBook();
+
 
     }
 }

@@ -78,4 +78,8 @@ public class User {
         return "Name = " + this.name + ", Surname = " + this.surname;
     }
 
+    public boolean equals(User user) {
+        return name.equals(user.getName()) && surname.equals(user.getSurname());
+    }
+
 }

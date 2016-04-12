@@ -91,4 +91,12 @@ public class Book {
         this.title = value;
     }
 
+    public String toString() {
+        return "Title: " + this.title + ", Amount: " + this.amount;
+    }
+
+    public boolean equals(Book book) {
+        return title.equals(book.title) && author.equals(book.author);
+    }
+
 }

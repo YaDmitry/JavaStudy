@@ -78,4 +78,7 @@ public class Author {
         return "Name: " + this.name + ", Surname: " + this.surname;
     }
 
+    public boolean equals(Author author){
+        return name.equals(author.name) && surname.equals(author.surname);
+    }
 }
