@@ -5,6 +5,8 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlType;
 
+import static com.tsystems.library.libclient.Logging.makeItGreen;
+
 
 /**
  * <p>Java class for author complex type.
@@ -75,7 +77,7 @@ public class Author {
     }
 
     public String toString() {
-        return "Name: " + this.name + ", Surname: " + this.surname;
+        return makeItGreen("Author: ") + this.name + " " + this.surname;
     }
 
     public boolean equals(Author author){

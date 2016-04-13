@@ -10,59 +10,56 @@ import java.util.List;
  */
 public class TestWSClient {
 
-    @WebServiceRef(wsdlLocation = "http://10.233.57.103:8888/ws/library?wsdl")
+//    @WebServiceRef(wsdlLocation = "http://10.233.57.103:8888/ws/library?wsdl")
     static LibraryWSImplService service = new LibraryWSImplService();
 
     public static void main(String[] args) {
-        boolean mock = false;
+        boolean mock = true;
         LibraryWS port;
         if (mock) {
             port = new LibraryWSMock();
         } else {
             port = service.getLibraryWSImplPort();
         }
+
 //        LibraryWS libraryWSImplPort = service.getLibraryWSImplPort();
 
-//      Add User | ctrl+alt+V
+        // Add User|ctrl + alt + V
         boolean isUserAdd1 = port.addUser("Name1", "Surname1");
-//        boolean isUserAdd2 = port.addUser("Name2", "Surname2");
-//        boolean isUserAdd3 = port.addUser("Name3", "Surname3");
+        boolean isUserAdd2 = port.addUser("Name2", "Surname2");
+        boolean isUserAdd3 = port.addUser("Name3", "Surname3");
+        boolean isUserAdd4 = port.addUser("Name4", "Surname5");
+//        System.out.println(isUserAdd1);
 
-        System.out.println(isUserAdd1);
-
+        // Get UserIds
         List<String> userIds = port.getUserIds();
         System.out.println(userIds);
 
-        User user = port.getUser(userIds.get(6));
+        // Get User
+        User user = port.getUser(userIds.get(2));
         System.out.println(user);
 
-
-////      Get Authors
+        // Get Authors
         List<Author> authors = port.getAuthors();
-        System.out.println(authors);
+        System.out.println("Authotrs: " + authors);
 
-        //////      Get Books
-        List<Book> books = port.getBooks(authors.get(2));
+        //Get Books
+        List<Book> books = port.getBooks(authors.get(0));
         System.out.println(books);
-//
-//////      Get Book
+
+        // Get Book
         Book book = port.getBook(books.get(0));
         System.out.println(book);
 
-        //      Take Book
+        // Take Book
         port.takeBook(user, book);
-
-        //      Return Book
+//
+        // Return Book
         port.returnBook(user, book);
 
-
-//      Is Waiting
+        // Is Waiting
         boolean isWaiting = port.isWaiting(user, book);
         System.out.println(isWaiting);
-//
-
-//
-
 
     }
 }

@@ -5,6 +5,9 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlType;
 
+import static com.tsystems.library.libclient.Logging.makeItGreen;
+import static com.tsystems.library.libclient.Logging.makeItYellow;
+
 
 /**
  * <p>Java class for user complex type.
@@ -75,7 +78,7 @@ public class User {
     }
 
     public String toString() {
-        return "Name = " + this.name + ", Surname = " + this.surname;
+        return makeItGreen("User Name: ") + this.name + " " + this.surname;
     }
 
     public boolean equals(User user) {

@@ -4,60 +4,91 @@ import com.tsystems.library.libservice.*;
 
 import java.util.*;
 
+import static com.tsystems.library.libclient.CommonConstants.*;
+import static com.tsystems.library.libclient.Logging.*;
+
 /**
  * Created by dyaprint on 07.04.2016.
  */
 public class LibraryWSMock implements LibraryWS {
 
-    Map<String, User> usersById = new HashMap<>();
+    // Initialize collections
+    Map<String, User> usersMap = new TreeMap<>();
+    List<Author> authors = new ArrayList<>();
     List<Book> books = new ArrayList<>();
-    Queue<IsWaiting> waitingQueue = new ArrayDeque<IsWaiting>();
+    Queue<IsWaiting> waitingQueue = new ArrayDeque<>();
 
+    private static long idCounter = 0;
 
-
-//  List<User> users = new ArrayList<>();
+    public static synchronized String createID() {
+        return String.valueOf(idCounter++);
+    }
 
     public LibraryWSMock() {
+        // Add basic set of Users
+        addUser("Name1", "Surname1");
+        addUser("Name2", "Surname2");
+        addUser("Name3", "Surname3");
+        addUser("Name4", "Surname4");
+        // create Authors
+        addAuthor(LEO, TOLSTOY);
+        addAuthor(IVAN, TURGENEV);
+        addAuthor(FYODOR, DOSTOYEVSKY);
+        addAuthor(ALEXANDER, PUSHKIN);
+        // create Books
+        addBook(2, authors.get(0), ANNA_KARENINA);
+        addBook(4, authors.get(0), WAR_AND_PEACE);
+        addBook(0, authors.get(0), YOUTH);
+        addBook(11, authors.get(0), CHILDHOOD);
+        addBook(1, authors.get(1), FATHERS_AND_SONS);
+        addBook(6, authors.get(2), CRIME_AND_PUNISHMENT);
+        addBook(0, authors.get(2), THE_IDIOT);
+        addBook(3, authors.get(3), RUSLAN_AND_LUDMILA);
+    }
+
+    @Override
+    public boolean addUser(String name, String surname) {
+        User user = new User();
+        user.setName(name);
+        user.setSurname(surname);
+        // generate id
+        String id = createID();
+        usersMap.put(id, user);
+        return true;
     }
 
     @Override
     public List<String> getUserIds() {
-        Set<String> set = usersById.keySet();
-        ArrayList<String> result = new ArrayList<>();
-        result.addAll(set);
-        return result;
+        List<String> listID = new ArrayList<>();
+        for (String userId : usersMap.keySet()) {
+            listID.add(userId);
+        }
+        return listID;
     }
 
     @Override
     public User getUser(String id) {
-        return usersById.get(id);
+        return usersMap.get(id);
     }
 
-    @Override
-    public boolean addUser(String arg0, String arg1) {
-        User user = new User();
-        user.setName(arg0);
-        user.setSurname(arg1);
-        // generate id
-        String id = Math.ceil(Math.random() * 100) + "-" + Math.ceil(Math.random() * 100);
-        usersById.put(id, user);
+    public boolean addBook(int amount, Author author, String title) {
+        Book book = new Book();
+        book.setAmount(amount);
+        book.setAuthor(author);
+        book.setTitle(title);
+        books.add(book);
         return true;
     }
 
     @Override
     public List<Book> getBooks(Author author) {
-        List<Book> result = null;
+        List<Book> bookList = new ArrayList<>();
         for (Book book : books) {
-            Author bookAuthor = book.getAuthor();
-            if (bookAuthor.getName().equals(author.getName())
-                    && bookAuthor.getSurname().equals(author.getSurname())) {
-                if (result == null) {
-                    result = new ArrayList<>();
-                }
-                result.add(book);
+            if (book.getAuthor().equals(author)) {
+                bookList.add(book);
             }
         }
-        return result;
+        return bookList;
     }
 
     @Override
@@ -66,47 +97,49 @@ public class LibraryWSMock implements LibraryWS {
             if (book.equals(takenBook)) {
                 if (book.getAmount() > 0) {
                     book.setAmount(book.getAmount() - 1);
+                    System.out.println("Читатель " + makeItGreen(user.getName()) + " " + makeItGreen(user.getSurname()) + " взял(а) книгу " + makeItYellow(takenBook.getTitle()) + ".");
                 } else {
                     waitingQueue.add(new IsWaiting(user, takenBook));
                 }
             }
         }
-
     }
 
     @Override
-    public void returnBook(User arg0, Book returnedBook) {
+    public void returnBook(User user, Book returnedBook) {
         for (Book book : books) {
-            if (book.equals(returnedBook))
-            {
+            if (book.equals(returnedBook)) {
                 book.setAmount(book.getAmount() + 1);
             }
         }
     }
 
     @Override
-    public Book getBook(Book gettedBook) {
+    public Book getBook(Book gotBook) {
         for (Book book : books) {
-            if (book.equals(gettedBook))
+            if (book.equals(gotBook))
                 return book;
         }
         return null;
     }
 
-    @Override
-    public List<Author> getAuthors() {
-        List<Author> result = new ArrayList<>();
-        Author a = new Author();
-        a.setName("dima");
-        a.setSurname("ya");
-        result.add(a);
-        return result;
+    public boolean addAuthor(String name, String surname) {
+        Author author = new Author();
+        author.setName(name);
+        author.setSurname(surname);
+        authors.add(author);
+        return true;
     }
 
     @Override
-    public boolean isWaiting(User arg0, Book arg1) {
+    public List<Author> getAuthors() {
+        return authors;
+    }
+
+    @Override
+    public boolean isWaiting(User user, Book book) {
         for (IsWaiting waiting : waitingQueue) {
-            if (waiting.getArg0().equals(arg0) && waiting.getArg1().equals(arg1))
+            if (waiting.getArg0().equals(user) && waiting.getArg1().equals(book))
                 return true;
         }
         return false;
