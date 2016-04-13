@@ -6,6 +6,7 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlType;
 
 import static com.tsystems.library.libclient.Logging.makeItGreen;
+import static com.tsystems.library.libclient.Logging.makeItYellow;
 
 
 /**
@@ -77,7 +78,7 @@ public class Author {
     }
 
     public String toString() {
-        return makeItGreen("Author: ") + this.name + " " + this.surname;
+        return makeItYellow(this.name + " " + this.surname);
     }
 
     public boolean equals(Author author){

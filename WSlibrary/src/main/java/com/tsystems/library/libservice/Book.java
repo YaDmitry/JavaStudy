@@ -5,6 +5,8 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlType;
 
+import static com.tsystems.library.libclient.Logging.makeItYellow;
+
 
 /**
  * <p>Java class for book complex type.
@@ -92,7 +94,7 @@ public class Book {
     }
 
     public String toString() {
-        return "Title: " + this.title + ", Amount: " + this.amount;
+        return makeItYellow("Title: ") + this.title + ", Amount: " + this.amount;
     }
 
     public boolean equals(Book book) {
