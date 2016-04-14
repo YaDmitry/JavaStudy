@@ -5,7 +5,6 @@ import com.tsystems.library.libservice.*;
 import java.util.*;
 
 import static com.tsystems.library.libclient.CommonConstants.*;
-import static com.tsystems.library.libclient.Logging.*;
 
 /**
  * Created by dyaprint on 07.04.2016.
@@ -36,14 +35,14 @@ public class LibraryWSMock implements LibraryWS {
         addAuthor(FYODOR, DOSTOYEVSKY);
         addAuthor(ALEXANDER, PUSHKIN);
         // create Books
-        addBook(2, authors.get(0), ANNA_KARENINA);
-        addBook(4, authors.get(0), WAR_AND_PEACE);
+        addBook(4, authors.get(0), ANNA_KARENINA);
+        addBook(6, authors.get(0), WAR_AND_PEACE);
         addBook(0, authors.get(0), YOUTH);
         addBook(11, authors.get(0), CHILDHOOD);
         addBook(1, authors.get(1), FATHERS_AND_SONS);
-        addBook(6, authors.get(2), CRIME_AND_PUNISHMENT);
+        addBook(2, authors.get(2), CRIME_AND_PUNISHMENT);
         addBook(0, authors.get(2), THE_IDIOT);
-        addBook(3, authors.get(3), RUSLAN_AND_LUDMILA);
+        addBook(2, authors.get(3), RUSLAN_AND_LUDMILA);
     }
 
     @Override
@@ -97,7 +96,6 @@ public class LibraryWSMock implements LibraryWS {
             if (book.equals(takenBook)) {
                 if (book.getAmount() > 0) {
                     book.setAmount(book.getAmount() - 1);
-                    System.out.println("Читатель " + makeItGreen(user.getName()) + " " + makeItGreen(user.getSurname()) + " взял(а) книгу " + makeItYellow(takenBook.getTitle()) + ".");
                 } else {
                     waitingQueue.add(new IsWaiting(user, takenBook));
                 }

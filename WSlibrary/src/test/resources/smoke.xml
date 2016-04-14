@@ -5,12 +5,15 @@
         <classes>
             <class name="com.tsystems.library.libclient.LibraryWSTest">
                 <methods>
-                    <include name="testAddUser"/>
+                    <exclude name="testAddUser"/>
                     <include name="testGetUserIds"/>
                     <include name="testGetUser"/>
                     <include name="testGetAuthors"/>
                     <include name="testGetBooks"/>
                     <include name="testGetBook"/>
+                    <exclude name="testTakeBookNotWaiting"/>
+                    <exclude name="testTakeBookIsWaiting"/>
+                    <exclude name="testReturnBook"/>
                 </methods>
             </class>
         </classes>

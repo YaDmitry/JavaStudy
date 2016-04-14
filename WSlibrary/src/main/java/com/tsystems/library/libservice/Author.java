@@ -5,7 +5,6 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlType;
 
-import static com.tsystems.library.libclient.Logging.makeItGreen;
 import static com.tsystems.library.libclient.Logging.makeItYellow;
 
 

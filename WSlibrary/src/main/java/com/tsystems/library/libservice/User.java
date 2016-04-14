@@ -73,6 +73,10 @@ public class User {
         this.surname = value;
     }
 
+    public String toString() {
+        return this.name + " " + this.surname;
+    }
+
     public boolean equals(User user) {
         return name.equals(user.getName()) && surname.equals(user.getSurname());
     }
